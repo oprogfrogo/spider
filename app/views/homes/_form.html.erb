@@ -1,0 +1,49 @@
+<%= form_for @home,  html: { 'data-parsley-validate': true } do |f| %>
+<%= render "application/error_messages", :target => @home %>
+<div class="large-9 large-centered">
+    <h4 class="small-12 collapse columns text-center">
+        Home Insurance Quote
+    </h4>
+    <div class="large-6 columns form-background">
+        <%= render 'application/form_basic_user' %>
+    </div>
+    <div class="large-6 columns form-background">
+        <div class="small-12 collapse columns text-center">
+            <h5>Property Information</h5>
+        </div>
+        <div class="small-12 collapse columns text-center">
+            <label class="text-left">Street</label>
+            <%= f.text_field :street, placeholder: "Street", required: true %>
+        </div>
+        <div class="small-12 collapse columns text-center">
+            <label class="text-left">Apt</label>
+            <%= f.text_field :street2, placeholder: "Apt, Suite, Room Number" %>
+        </div>
+        <div class="small-12 collapse columns text-center">
+            <label class="text-left">City</label>
+            <%= f.text_field :city, placeholder: "City", required: true %>
+        </div>
+        <div class="small-12 collapse columns text-center">
+            <label class="text-left">State</label>
+            <%= f.text_field :state, placeholder: "State", required: true %>
+        </div>
+        <div class="small-12 collapse columns text-center">
+            <label class="text-left">Postal Code</label>
+            <%= f.text_field :postal_code, value: ( f.object.postal_code || session[:postal_code] ), placeholder: "Postal Code", required: true %>
+        </div>
+        <div class="small-12 collapse columns text-center">
+            <label class="text-left">Year Built</label>
+            <%= f.select :year_built, (100.years.ago.year..Time.now.year).to_a.reverse, :include_blank => "Year Built", required: true %>
+        </div>
+        <div class="small-12 collapse columns text-center">
+            <label class="text-left">Alarm System</label>
+            <%= f.select :alarm_system, [['Existing Alarm System?', ''], ['Y', true], ['N', false]], required: true %>
+        </div>
+    </div>
+    <div class="small-12 columns text-center">
+        <button class="button fat-button">
+            Start Quote
+        </button>
+    </div>
+</div>
+<% end %>

@@ -1,0 +1,82 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or any plugin's vendor/assets/stylesheets directory can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ *
+ *= require parsley
+ *= require_tree .
+ *= require dataTables/jquery.dataTables
+ *= require dataTables/extras/dataTables.responsive
+ *= require dataTables/jquery.dataTables.foundation
+ *= require_self
+ */
+
+*:focus {
+    outline:none
+}
+
+ul {
+    list-style: none;
+}
+
+.title-bar {
+    background: #1C509D;
+}
+
+.off-canvas {
+    top: 43px;
+    padding-top: 20px;
+}
+
+.off-canvas-content {
+    margin-top: 40px;
+}
+
+.position-left.is-transition-push:after, .position-right.is-transition-push:after {
+    box-shadow: none;
+}
+
+.off-canvas {
+    background: #f7f7f7;
+}
+
+.flip {
+        -moz-transform: scaleX(-1);
+        -o-transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transform: scaleX(-1);
+        filter: FlipH;
+        -ms-filter: "FlipH";
+}
+
+.date select {
+    width: 32%;
+}
+
+.form-background {
+    background: #eee;
+    padding: 20px 20px 20px 20px;
+    border: 10px solid #fff;
+    border-radius: 20px;
+}
+
+.fat-button {
+    font-size: 20px;
+    border-radius: 10px;
+    padding: 20px 40px;
+}
+
+@media (max-width: 768px) {
+    #spider-mascot {
+        position: relative;
+        top: 7px;
+        left: -80px;
+    }
+}

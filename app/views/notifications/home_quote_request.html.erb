@@ -1,0 +1,63 @@
+<div>
+    <div>
+        <h3>Customer Details</h3>
+    </div>
+    <div>
+        <table border="1" cellpadding="5">
+            <tr>
+                <th>name</th>
+                <th>phone_number</th>
+                <th>email</th>
+                <th>street</th>
+                <th>street2</th>
+                <th>city</th>
+                <th>state</th>
+                <th>postal_code</th>
+                <th>dob</th>
+                <th>dl_number</th>
+                <th>martial_status</th>
+            </tr>
+            <tr>
+                <td><%= @user.name %></td>
+                <td><%= @user.phone_number %></td>
+                <td><%= @user.email %></td>
+                <td><%= @user.street %></td>
+                <td><%= @user.street2 %></td>
+                <td><%= @user.city %></td>
+                <td><%= @user.state %></td>
+                <td><%= @user.postal_code %></td>
+                <td><%= @user.dob %></td>
+                <td><%= @user.dl_number %></td>
+                <td><%= @user.martial_status %></td>
+            </tr>
+        </table>
+    </div>
+    <div>
+        <h3>Property Information</h3>
+    </div>
+    <div>
+        <table border="1" cellpadding="5">
+            <tr>
+                <th>street</th>
+                <th>street2</th>
+                <th>city</th>
+                <th>state</th>
+                <th>postal_code</th>
+                <th>year_built</th>
+                <th>alarm_system</th>
+            </tr>
+            <% @homes.each {|home| %>
+            <tr>
+                <td><%= home.street %></td>
+                <td><%= home.street2 %></td>
+                <td><%= home.city %></td>
+                <td><%= home.state %></td>
+                <td><%= home.postal_code %></td>
+                <td><%= home.year_built %></td>
+                <td><%= home.alarm_system %></td>
+                <td><%= link_to 'Send Quote', "http://localhost:3000/approve_home_request?token=#{home.token}" %></td>
+            </tr>
+            <% } %>
+        </table>
+    </div>
+</div>

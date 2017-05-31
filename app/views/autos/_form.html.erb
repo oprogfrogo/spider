@@ -1,0 +1,34 @@
+<%= form_for @auto do |f| %>
+<div class="large-9 large-centered">
+    <h4 class="small-12 collapse columns text-center">Auto Insurance Quote</h4>
+    <div class="large-6 columns form-background">
+        <%= render 'application/form_basic_user' %>
+    </div>
+    <div class="large-6 columns form-background">
+        <div class="small-12 collapse columns text-center">
+            <h5>Auto Information</h5>
+        </div>
+        <div class="small-12 collapse columns text-center">
+            <label class="text-left">VIN Number</label>
+            <%= f.text_field :vin, placeholder: "VIN" %>
+        </div>
+        <div class="small-12 collapse columns text-center">
+            <label class="text-left">Year</label>
+            <%= f.select :year, (100.years.ago.year..Time.now.year).to_a.reverse, :include_blank => "Year" %>
+        </div>
+        <div class="small-12 collapse columns text-center">
+            <label class="text-left">Make</label>
+            <%= f.text_field :make, placeholder: "Make" %>
+        </div>
+        <div class="small-12 collapse columns text-center">
+            <label class="text-left">Mode</label>
+            <%= f.text_field :model, placeholder: "Model" %>
+    </div>
+    </div>
+    <div class="small-12 columns text-center">
+        <button class="button fat-button">
+            Start Quote
+        </button>
+    </div>
+</div>
+<% end %>

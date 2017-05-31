@@ -1,0 +1,28 @@
+<%= render "application/error_messages", :target => @user %>
+<div class="small-12 collapse columns text-center">
+    <h5>Personal Information</h5>
+</div>
+<div class="small-12 collapse columns text-center">
+    <label class="text-left">Full Name</label>
+    <%= text_field_tag 'user[name]', nil, placeholder: "eg. John Smith", required: true %>
+</div>
+<div class="small-12 collapse columns text-center">
+    <label class="text-left">Phone Number</label>
+    <%= telephone_field_tag 'user[phone_number]', nil, placeholder: "eg. 888-888-8888", required: true %>
+</div>
+<div class="small-12 collapse columns text-center">
+    <label class="text-left">Email Address</label>
+    <%= text_field_tag 'user[email]', nil, placeholder: "eg. youremail@gmail.com", required: true %>
+</div>
+<div class="small-12 collapse columns text-center date">
+    <label class="text-left">Date of Birth</label>
+    <%= date_select 'user', 'dob', {order: [:month, :day, :year], prompt: { day: 'Day', month: 'Month', year: 'Year' }, start_year: Date.today.year - 18, end_year: Date.today.year - 100}, { required: true } %>
+</div>
+<div class="small-12 collapse columns text-center">
+    <label class="text-left">Driver's License Number</label>
+    <%= text_field_tag 'user[dl_number]', nil, placeholder: "Driver's License", required: true %>
+</div>
+<div class="small-12 collapse columns text-center">
+    <label class="text-left">Marital Status</label>
+    <%= select_tag 'user[martial_status]', options_for_select([['Select Marital Status', ''], ['Married', 'married'], ['Single', 'single']]), placeholder: "Marital Status", required: true %>
+</div>

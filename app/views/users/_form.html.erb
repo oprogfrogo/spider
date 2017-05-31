@@ -1,0 +1,37 @@
+<%= form_for @user do |f| %>
+<div class="large-6 large-centered">
+    <h4>Home Insurance Quote</h4>
+    <div class="small-12 collapse columns text-center">
+        <%= f.text_field :name, placeholder: "Full Name" %>
+    </div>
+    <div class="small-12 collapse columns text-center">
+        <%= f.text_field :phone_number, placeholder: "Phone Number" %>
+    </div>
+    <div class="small-12 collapse columns text-center">
+        <%= f.text_field :email, placeholder: "Email Address" %>
+    </div>
+    <div class="small-12 collapse columns text-center">
+        <%= f.text_field :postal_code, placeholder: "Postal Code" %>
+    </div>
+    <div class="small-12 collapse columns text-center">
+        <%= f.date_select :dob, {order: [:month, :day, :year], prompt: { day: 'Select day', month: 'Select month', year: 'Select year' }, start_year: Date.today.year - 18, end_year: Date.today.year - 100}, {required: true} %>
+    </div>
+    <div class="small-12 collapse columns text-center">
+        <%= f.text_field :dl_number, placeholder: "Driver's License" %>
+    </div>
+    <div class="small-12 collapse columns text-center">
+        <%= f.select :martial_status, [['Select Marital Status', ''], ['Married', 'married'], ['Single', 'single']], placeholder: "Marital Status" %>
+    </div>
+    <div class="small-12 collapse columns text-center">
+        <%= f.text_field :vin, placeholder: "VIN" %>
+    </div>
+    <div class="small-12 collapse columns text-center">
+        <%= f.text_field :year, placeholder: "Postal Code" %>
+    </div>
+    <div class="small-12 columns text-center">
+        <button class="button">
+            Start Quote
+        </button>
+    </div>
+</div>
+<% end %>

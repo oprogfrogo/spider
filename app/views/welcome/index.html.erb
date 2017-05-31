@@ -1,0 +1,37 @@
+<div class="large-6 large-centered text-center">
+    <div>
+        <span class="fa-stack fa-lg fa-4x"> <i class="fa fa-circle fa-stack-2x blue"></i> <i class="fa fa-home fa-stack-1x fa-inverse"></i> </span>
+    </div>
+
+    <div style="font-size: 34px;">
+        Home Insurance
+    </div>
+
+    <div id="spider_logo" class="show-for-medium-up">
+        <%= image_tag 'spider_policy_mascot.png', id: "spider-mascot", class: "large-12 small-4" %>
+    </div>
+
+    <%= form_tag 'store_zip' do %>
+    <div class="large-6 small-8 small-centered large-centered">
+        <div class="small-6 collapse columns text-center">
+            <%= text_field_tag :postal_code, nil, placeholder: "Zip Code" %>
+        </div>
+        <div class="small-6 columns text-center">
+            <%= button_tag 'Start Quote', class: 'button' %>
+        </div>
+    </div>
+    <% end %>
+
+    <div class="large-6 large-centered small-8 small-centered text-center">
+        Select a different insurance product:
+    </div>
+
+    <div class="large-6 large-centered text-center">
+        <span class="fa-stack fa-lg fa-2x">
+            <%= link_to '<i class="fa fa-circle-o fa-stack-2x blue"></i><i class="fa fa-home fa-stack-1x blue"></i>'.html_safe, homes_url %>
+        </span>
+        <span class="fa-stack fa-lg fa-2x">
+            <%= link_to '<i class="fa fa-circle-o fa-stack-2x blue"></i><i class="fa fa-bus fa-stack-1x blue"></i>'.html_safe, autos_url %>
+        </span>
+    </div>
+</div>
