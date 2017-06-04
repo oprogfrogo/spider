@@ -46,7 +46,7 @@ class QuotesController < ApplicationController
 
         quotes = Quote.where(promo_date: '2017-06-01')
 
-        Notifications.home_quote_approve(home.user, home, agent, quotes).deliver
+        Notifications.home_quote_approve(home.user, home, agent, quotes).deliver_now
       }
     else
       flash[:alert] = "You must select a Promo for each quote"

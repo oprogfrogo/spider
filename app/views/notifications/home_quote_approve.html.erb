@@ -1,5 +1,5 @@
 <div>
-    <div><%= image_tag 'https://s3-us-west-2.amazonaws.com/spiderpolicy/spider_policy_man.png' %></div>
+    <div><%= image_tag 'https://s3-us-west-2.amazonaws.com/spiderpolicy/spider_policy_man.png', width: '70%' %></div>
     <div style="margin-top: 30px"><%= Date.today %></div>
     <div style="margin-top: 30px">
         <p><%= @user.name %></p>
@@ -11,10 +11,10 @@
         <table id="home_quote_approve_table" cellpadding="5" cellspacing="0">
             <thead>
                 <tr>
-                    <th class="table-headers">Coverage</th>
-                    <th class="table-headers">Bronze</th>
-                    <th class="table-headers">Silver</th>
-                    <th class="table-headers">Gold</th>
+                    <th style="background: #000; color: #fff;">Coverage</th>
+                    <th style="background: #000; color: #fff;">Bronze</th>
+                    <th style="background: #000; color: #fff;">Silver</th>
+                    <th style="background: #000; color: #fff;">Gold</th>
                 </tr>
             </thead>
             <tbody>
@@ -22,7 +22,18 @@
                     <tr>
                         <td><%= column.titleize %></td>
                         <% @quotes.each_with_index {|quote, index| %>
-                            <td class="quote_column_<%= index %>"><%= quote[column] %></td>
+                            <% case index
+                                when 0
+                                color='#ffc784'
+                                when 1
+                                color='#d3eeff'
+                                when 2
+                                color='#ffff3d'
+                                else
+                                color='#ffc784'
+                                end %>
+
+                            <td class="quote_column_<%= index %>" style="background: <%= color %>" ><%= quote[column] %></td>
                         <% } %>
                     <tr>
                 <% } %>

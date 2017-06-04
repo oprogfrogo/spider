@@ -8,11 +8,11 @@
 
 agents = Agent.create([
   {
-    login: 'agent',
-    password: '123456',
-    name: 'Spider Policy Agent',
+    login: 'simon',
+    password: 'sdfsdf',
+    name: 'Simon Lee',
     email: 'oprogfrogo@gmail.com',
-    phone: '888-888-8888',
+    phone: '310-951-5044',
     ext: nil,
     round_robin: 1
   }
