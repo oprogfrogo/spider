@@ -1,9 +1,22 @@
 <div class="row">
-    <div class="large-6 text-center column">
-        <h3>Returning Customer</h3>
-    </div>
-
-    <div class="large-6 text-center column">
-        <h3>New User</h3>
+    <div class="small-12 large-7 large-centered">
+        <div class="small-12 large-5 column">
+            <h4>New User</h4>
+            <label>Username:</label>
+            <%= text_field_tag 'username' %>
+            <label>Password:</label>
+            <%= text_field_tag 'password' %>
+            <label>Email:</label>
+            <%= text_field_tag 'email' %>
+            <%= submit_tag 'Register', class: 'button' %>
+        </div>
+        <div class="large-5 column">
+            <h4>Returning Customer</h4>
+            <label>Username:</label>
+            <%= text_field_tag 'username' %>
+            <label>Password:</label>
+            <%= text_field_tag 'password' %>
+            <%= submit_tag 'Log In', class: 'button' %>
+        </div>
     </div>
 </div>
