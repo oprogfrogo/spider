@@ -11,6 +11,7 @@ class CreateHomes < ActiveRecord::Migration
       t.boolean :alarm_system
       t.string :status
       t.string :token
+      t.string :promo_date
 
       t.timestamps null: false
     end

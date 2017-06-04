@@ -63,6 +63,8 @@ Rails.application.routes.draw do
   get 'approve_home_request' => 'homes#approve_home_request'
   post 'send_quote' => 'quotes#send_quote'
   post 'home_insurance_quote' => 'welcome#home_insurance_quote'
-  post 'agent_login' => 'agents#login'
+  get 'agent_login' => 'agents#login'
+  post 'agent_auth' => 'agents#auth'
+  get 'agent_logout' => 'agents#logout'
 
 end

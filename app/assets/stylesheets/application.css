@@ -73,6 +73,23 @@ ul {
     padding: 20px 40px;
 }
 
+.quote_column_0 {
+    background: #ffc784;
+}
+
+.quote_column_1 {
+    background: #d3eeff;
+}
+
+.quote_column_2 {
+    background: #ffff3d;
+}
+
+.table-headers {
+	background: #000;
+	color: #fff;
+}
+
 @media (max-width: 768px) {
     #spider-mascot {
         position: relative;

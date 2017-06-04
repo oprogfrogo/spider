@@ -8,42 +8,63 @@
 
 agents = Agent.create([
   {
-    login: 'kosho',
-    password: 'sdfsdf',
-    name: 'Kosho Watanabe',
+    login: 'agent',
+    password: '123456',
+    name: 'Spider Policy Agent',
     email: 'oprogfrogo@gmail.com',
     phone: '888-888-8888',
     ext: nil,
-    round_robin: 0
-  },
-  {
-    login: 'simon',
-    password: 'sdfsdf',
-    name: 'Simon Lee',
-    email: 'oprogfrogo@gmail.com',
-    phone: '888-888-8888',
-    ext: nil,
-    round_robin: 0
+    round_robin: 1
   }
 ])
 
 quotes = Quote.create([
   {
     kind: 'home',
-    promo: 'june_2016',
-    level: 'bronze',
-    price: '100'
+    promo_date: '2017-06-01',
+    category: 'bronze',
+    carrier: 'Tokio Marine USA',
+    bodily_injury_liability: '$15,000 / PP   $30,000 / OCC',
+    property_damage_liability: '$10,000',
+    medical_payments: '$1,000',
+    uninsured_motorist_bodily_injury: '$15,000 / PP  $30,000 / OCC',
+    comprehensive: 'Not Included',
+    collision: 'Not Included',
+    waiver_of_collision_deductible: '$3,500',
+    rental_reimbursement: 'Not Included',
+    roadside_coverage: 'Not Included',
+    total_premium: '$200 / Month'
   },
   {
     kind: 'home',
-    promo: 'june_2016',
-    level: 'silver',
-    price: '200'
+    promo_date: '2017-06-01',
+    category: 'silver',
+    carrier: 'Tokio Marine USA',
+    bodily_injury_liability: '$50,000 / PP  $100,000 / OCC',
+    property_damage_liability: '$50,000',
+    medical_payments: '$2,000',
+    uninsured_motorist_bodily_injury: '$50,000 / PP  $100,000 / OCC',
+    comprehensive: '$500',
+    collision: '$500',
+    waiver_of_collision_deductible: 'Included',
+    rental_reimbursement: '$30 day for 30 days',
+    roadside_coverage: 'Included',
+    total_premium: '$400 / Month'
   },
   {
     kind: 'home',
-    promo: 'june_2016',
-    level: 'gold',
-    price: '300'
+    promo_date: '2017-06-01',
+    category: 'gold',
+    carrier: 'Tokio Marine USA',
+    bodily_injury_liability: '$100,000 / PP  $300,000 /OCC',
+    property_damage_liability: '$100,000',
+    medical_payments: '$5,000',
+    uninsured_motorist_bodily_injury: '$100,000 / PP  $300,000 / OCC',
+    comprehensive: '$500',
+    collision: '$500',
+    waiver_of_collision_deductible: 'Included',
+    rental_reimbursement: '$40 day for 30 days',
+    roadside_coverage: 'Included',
+    total_premium: '$600 / Month'
   }
 ])

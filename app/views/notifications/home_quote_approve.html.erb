@@ -1,0 +1,32 @@
+<div>
+    <div><%= image_tag 'https://s3-us-west-2.amazonaws.com/spiderpolicy/spider_policy_man.png' %></div>
+    <div style="margin-top: 30px"><%= Date.today %></div>
+    <div style="margin-top: 30px">
+        <p><%= @user.name %></p>
+        <p><%= @home.street %></p>
+        <p><%= @home.street2 %></p>
+        <p><%= @home.city %>, <%= @home.state %> <%= @home.postal_code %></p>
+    </div>
+    <div style="margin-top: 30px">
+        <table id="home_quote_approve_table" cellpadding="5" cellspacing="0">
+            <thead>
+                <tr>
+                    <th class="table-headers">Coverage</th>
+                    <th class="table-headers">Bronze</th>
+                    <th class="table-headers">Silver</th>
+                    <th class="table-headers">Gold</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% (@quotes.column_names - ['id', 'kind', 'promo_date', 'category', 'created_at', 'updated_at']).each {|column| %>
+                    <tr>
+                        <td><%= column.titleize %></td>
+                        <% @quotes.each_with_index {|quote, index| %>
+                            <td class="quote_column_<%= index %>"><%= quote[column] %></td>
+                        <% } %>
+                    <tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</div>

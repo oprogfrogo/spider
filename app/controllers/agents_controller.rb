@@ -1,12 +1,16 @@
 class AgentsController < ApplicationController
 
+  layout 'agents'
+  
   def index
-    @agent = Agent.new
-    session[:quote_token] = params[:quote_token] if params[:quote_token].present?
-
     if session[:agent].present?
+      @agent = Agent.new
+      session[:quote_token] = params[:quote_token] if params[:quote_token].present?
+
       @home_quotes = Home.all
-      @quotes = Quote.where(kind: 'home').collect(&:promo).uniq
+      @quotes = Quote.where(kind: 'home').collect(&:promo_date).uniq
+    else
+      redirect_to action: 'login'
     end
   end
 
@@ -18,7 +22,29 @@ class AgentsController < ApplicationController
     end
 
     respond_to do |format|
-      format.html { redirect_to action: :index }
+      format.html
+    end
+  end
+
+  def auth
+    agent = Agent.where({ login: params[:login], password: params[:password] }).try(:first)
+    if agent.present?
+      session[:agent] = agent.login
+    else
+      flash[:alert] = 'Invalid username or password'
+      redirect_to action: 'login'
+    end
+
+    respond_to do |format|
+      format.html { redirect_to action: 'index'}
+    end
+  end
+
+  def logout
+    session[:agent] = nil
+
+    respond_to do |format|
+      format.html { redirect_to action: 'login'}
     end
   end
 

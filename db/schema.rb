@@ -50,6 +50,7 @@ ActiveRecord::Schema.define(version: 20170531054131) do
     t.boolean  "alarm_system"
     t.string   "status",       limit: 255
     t.string   "token",        limit: 255
+    t.string   "promo_date",   limit: 255
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
@@ -57,12 +58,22 @@ ActiveRecord::Schema.define(version: 20170531054131) do
   add_index "homes", ["user_id"], name: "index_homes_on_user_id", using: :btree
 
   create_table "quotes", force: :cascade do |t|
-    t.string   "kind",       limit: 255
-    t.string   "promo",      limit: 255
-    t.string   "level",      limit: 255
-    t.decimal  "price",                  precision: 10
-    t.datetime "created_at",                            null: false
-    t.datetime "updated_at",                            null: false
+    t.string   "kind",                             limit: 255
+    t.date     "promo_date"
+    t.string   "category",                         limit: 255
+    t.string   "carrier",                          limit: 255
+    t.string   "bodily_injury_liability",          limit: 255
+    t.string   "property_damage_liability",        limit: 255
+    t.string   "medical_payments",                 limit: 255
+    t.string   "uninsured_motorist_bodily_injury", limit: 255
+    t.string   "comprehensive",                    limit: 255
+    t.string   "collision",                        limit: 255
+    t.string   "waiver_of_collision_deductible",   limit: 255
+    t.string   "rental_reimbursement",             limit: 255
+    t.string   "roadside_coverage",                limit: 255
+    t.string   "total_premium",                    limit: 255
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
   end
 
   create_table "users", force: :cascade do |t|
