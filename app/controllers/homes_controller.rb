@@ -28,6 +28,7 @@ class HomesController < ApplicationController
 
         # Notifications.home_quote_request(@user, @homes).deliver_now
       else
+        # reload the form with values
         @user = User.new(params[:user])
         @user.build_profile(params[:profile])
         @home = Home.new(params[:home])
