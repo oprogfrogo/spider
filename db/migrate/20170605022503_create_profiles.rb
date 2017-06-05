@@ -1,8 +1,7 @@
-class CreateUsers < ActiveRecord::Migration
+class CreateProfiles < ActiveRecord::Migration
   def change
-    create_table :users do |t|
-      t.string :username
-      t.string :password
+    create_table :profiles do |t|
+      t.references :user, index: true, foreign_key: true
       t.string :name
       t.string :phone_number
       t.string :email
@@ -11,7 +10,7 @@ class CreateUsers < ActiveRecord::Migration
       t.string :city
       t.string :state
       t.string :postal_code
-      t.string :dob
+      t.date :dob
       t.string :dl_number
       t.string :martial_status
 

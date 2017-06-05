@@ -66,5 +66,7 @@ Rails.application.routes.draw do
   get 'agent_login' => 'agents#login'
   post 'agent_auth' => 'agents#auth'
   get 'agent_logout' => 'agents#logout'
+  get 'user_login' => 'user#login'
+  post 'users_check_exist' => 'users#users_check_exist'
 
 end

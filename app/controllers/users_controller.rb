@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
 
-  def create
-    params.permit!
-    @user = User.new(params[:user])
-    @user.save
-    redirect_to quotes_path
+  def users_check_exist
+    @user = User.where({email: params[:email]})
+
+    respond_to do |format|
+      format.js { render json: @user.to_json }
+    end
   end
 
 end

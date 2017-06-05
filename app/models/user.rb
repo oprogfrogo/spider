@@ -1,6 +1,7 @@
 class User < ActiveRecord::Base
-  has_many :autos
-  has_many :homes
+  has_one :profile, dependent: :destroy
+  has_many :autos, dependent: :destroy
+  has_many :homes, dependent: :destroy
 
-  validates_presence_of :name, :phone_number, :email, :dob, :dl_number, :martial_status
+  validates_confirmation_of :password
 end

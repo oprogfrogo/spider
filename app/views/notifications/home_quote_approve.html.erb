@@ -2,7 +2,7 @@
     <div><%= image_tag 'https://s3-us-west-2.amazonaws.com/spiderpolicy/spider_policy_man.png', width: '70%' %></div>
     <div style="margin-top: 30px"><%= Date.today %></div>
     <div style="margin-top: 30px">
-        <p><%= @user.name %></p>
+        <p><%= @user.profile.name %></p>
         <p><%= @home.street %></p>
         <p><%= @home.street2 %></p>
         <p><%= @home.city %>, <%= @home.state %> <%= @home.postal_code %></p>

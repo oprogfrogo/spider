@@ -1,6 +1,6 @@
 <%= form_for @user do |f| %>
 <div class="large-6 large-centered">
-    <h4>Home Insurance Quote</h4>
+    <%= @user.errors.full_messages.first if @user.errors.any? %>
     <div class="small-12 collapse columns text-center">
         <%= f.text_field :name, placeholder: "Full Name" %>
     </div>

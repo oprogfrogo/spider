@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170531054131) do
+ActiveRecord::Schema.define(version: 20170605022503) do
 
   create_table "agents", force: :cascade do |t|
     t.string   "login",       limit: 255
@@ -57,6 +57,25 @@ ActiveRecord::Schema.define(version: 20170531054131) do
 
   add_index "homes", ["user_id"], name: "index_homes_on_user_id", using: :btree
 
+  create_table "profiles", force: :cascade do |t|
+    t.integer  "user_id",        limit: 4
+    t.string   "name",           limit: 255
+    t.string   "phone_number",   limit: 255
+    t.string   "email",          limit: 255
+    t.string   "street",         limit: 255
+    t.string   "street2",        limit: 255
+    t.string   "city",           limit: 255
+    t.string   "state",          limit: 255
+    t.string   "postal_code",    limit: 255
+    t.date     "dob"
+    t.string   "dl_number",      limit: 255
+    t.string   "martial_status", limit: 255
+    t.datetime "created_at",                 null: false
+    t.datetime "updated_at",                 null: false
+  end
+
+  add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
+
   create_table "quotes", force: :cascade do |t|
     t.string   "kind",                             limit: 255
     t.date     "promo_date"
@@ -77,21 +96,11 @@ ActiveRecord::Schema.define(version: 20170531054131) do
   end
 
   create_table "users", force: :cascade do |t|
-    t.string   "username",       limit: 255
-    t.string   "password",       limit: 255
-    t.string   "name",           limit: 255
-    t.string   "phone_number",   limit: 255
-    t.string   "email",          limit: 255
-    t.string   "street",         limit: 255
-    t.string   "street2",        limit: 255
-    t.string   "city",           limit: 255
-    t.string   "state",          limit: 255
-    t.string   "postal_code",    limit: 255
-    t.string   "dob",            limit: 255
-    t.string   "dl_number",      limit: 255
-    t.string   "martial_status", limit: 255
-    t.datetime "created_at",                 null: false
-    t.datetime "updated_at",                 null: false
+    t.string   "email",      limit: 255
+    t.string   "password",   limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
+  add_foreign_key "profiles", "users"
 end

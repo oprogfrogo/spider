@@ -1,0 +1,10 @@
+<div class="large-5 column">
+    <%= form_tag 'login' do %>
+        <h4>Returning Customer</h4>
+        <label>Email:</label>
+        <%= text_field_tag 'email' %>
+        <label>Password:</label>
+        <%= text_field_tag 'password' %>
+        <%= submit_tag 'Log In', class: 'button' %>
+    <% end %>
+</div>
