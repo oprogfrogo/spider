@@ -3,6 +3,13 @@ class ApplicationController < ActionController::Base
   # For APIs, you may want to use :null_session instead.
   protect_from_forgery with: :exception
 
+  before_action :verify_logged_in
+
+  def verify_logged_in
+    user_email = User.find(session[:uid]).try(:email)
+    @signed_in = "Signed in as #{user_email}"
+  end
+
   private
   def twilio
     account_sid = 'AC980887bc91baffc2087016570b99db44'
