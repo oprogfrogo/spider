@@ -37,6 +37,7 @@ ul {
 
 .off-canvas-content {
     margin-top: 40px;
+    padding: 0 40px;
 }
 
 .position-left.is-transition-push:after, .position-right.is-transition-push:after {
