@@ -1,28 +1,42 @@
-<%= form_for @auto do |f| %>
-<div class="large-9 large-centered">
+<%= form_for @auto, html: { 'data-parsley-validate': true } do |f| %>
+
+    <% if session[:uid].present? %>
+        <div class="large-6 large-centered">
+    <% else %>
+        <div class="large-9 large-centered">
+    <% end %>
+
     <h4 class="small-12 collapse columns text-center">Auto Insurance Quote</h4>
-    <div class="large-6 columns form-background">
-        <%= render 'application/form_basic_user' %>
-    </div>
-    <div class="large-6 columns form-background">
+
+    <% if session[:uid].blank? %>
+        <div class="large-6 columns form-background">
+            <%= render 'application/form_basic_user' %>
+        </div>
+    <% end %>
+
+    <% if session[:uid].present? %>
+        <div class="columns form-background">
+    <% else %>
+        <div class="large-6 columns form-background">
+    <% end %>
         <div class="small-12 collapse columns text-center">
             <h5>Auto Information</h5>
         </div>
         <div class="small-12 collapse columns text-center">
             <label class="text-left">VIN Number</label>
-            <%= f.text_field :vin, placeholder: "VIN" %>
+            <%= f.text_field :vin, placeholder: "VIN", required: true %>
         </div>
         <div class="small-12 collapse columns text-center">
             <label class="text-left">Year</label>
-            <%= f.select :year, (100.years.ago.year..Time.now.year).to_a.reverse, :include_blank => "Year" %>
+            <%= f.select :year, (100.years.ago.year..Time.now.year).to_a.reverse, :include_blank => "Year", required: true %>
         </div>
         <div class="small-12 collapse columns text-center">
             <label class="text-left">Make</label>
-            <%= f.text_field :make, placeholder: "Make" %>
+            <%= f.text_field :make, placeholder: "Make", required: true %>
         </div>
         <div class="small-12 collapse columns text-center">
             <label class="text-left">Mode</label>
-            <%= f.text_field :model, placeholder: "Model" %>
+            <%= f.text_field :model, placeholder: "Model", required: true %>
     </div>
     </div>
     <div class="small-12 columns text-center">

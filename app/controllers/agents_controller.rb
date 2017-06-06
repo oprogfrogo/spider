@@ -1,14 +1,26 @@
 class AgentsController < ApplicationController
 
   layout 'agents'
-  
-  def index
+
+  def homes
     if session[:agent].present?
       @agent = Agent.new
       session[:quote_token] = params[:quote_token] if params[:quote_token].present?
 
       @home_quotes = Home.all
       @quotes = Quote.where(kind: 'home').collect(&:promo_date).uniq
+    else
+      redirect_to action: 'login'
+    end
+  end
+
+  def autos
+    if session[:agent].present?
+      @agent = Agent.new
+      session[:quote_token] = params[:quote_token] if params[:quote_token].present?
+
+      @auto_quotes = Auto.all
+      @quotes = Quote.where(kind: 'auto').collect(&:promo_date).uniq
     else
       redirect_to action: 'login'
     end

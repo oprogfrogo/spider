@@ -70,5 +70,7 @@ Rails.application.routes.draw do
   post 'user_login' => 'users#login'
   post 'users_check_exist' => 'users#users_check_exist'
   get 'session_logout' => 'sessions#logout'
+  get 'agent_homes' => 'agents#homes'
+  get 'agent_autos' => 'agents#autos'
 
 end
