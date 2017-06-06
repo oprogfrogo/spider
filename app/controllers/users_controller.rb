@@ -8,4 +8,20 @@ class UsersController < ApplicationController
     end
   end
 
+  def index
+    @user = User.new()
+  end
+
+  def create
+    @user = User.where({email: params[:email], password: params[:password]})
+
+    if @user.present?
+      session[:uid] = @user.id
+    end
+
+    respond_to do |format|
+      format.html { redirect_to action: 'homes' }
+    end
+  end
+
 end

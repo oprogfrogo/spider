@@ -1,18 +1,18 @@
-<%= render "application/error_messages", :target => @user %>
 <div class="small-12 collapse columns text-center">
     <h5>Personal Information</h5>
 </div>
+<%= render "application/error_messages", :target => @user %>
 <div class="small-12 collapse columns text-center">
     <label class="text-left">Email Address</label>
     <%= text_field_tag 'user[email]', (params[:user]['email'] if params[:user].present?), placeholder: "eg. youremail@gmail.com", required: true, onblur: "checkExistingUser(this.value)" %>
 </div>
 <div class="small-12 collapse columns text-center">
-    <label class="text-left">Password</label>
-    <%= password_field_tag 'user[password]', nil, placeholder: "eg. youremail@gmail.com", required: true, onblur: "checkExistingUser(this.value)" %>
+    <label class="text-left">Create Password</label>
+    <%= password_field_tag 'user[password]', nil, placeholder: "Create a new password", required: true, onblur: "checkExistingUser(this.value)" %>
 </div>
 <div class="small-12 collapse columns text-center">
     <label class="text-left">Password Confirmation</label>
-    <%= password_field_tag 'user[password_confirmation]', nil, placeholder: "eg. youremail@gmail.com", required: true, onblur: "checkExistingUser(this.value)" %>
+    <%= password_field_tag 'user[password_confirmation]', nil, placeholder: "Type the same password again", required: true, onblur: "checkExistingUser(this.value)" %>
 </div>
 <div class="small-12 collapse columns text-center">
     <label class="text-left">Full Name</label>
@@ -37,8 +37,8 @@
 
 <div class="reveal" id="checkExistingUser" data-reveal>
   <h1></h1>
-  <p class="lead"><span id="checkExistingUserEmail"></span> is already used. Log in to use your existing account:</p>
-  <p><%= render partial: 'users/login' %></p>
+  <p class="lead"><span id="checkExistingUserEmail"></span> is already used. Log in to use your existing account.</p>
+  <p><%= link_to 'GO TO LOGIN PAGE', sessions_path, class: 'button' %></p>
   <button class="close-button" data-close aria-label="Close modal" type="button">
     <span aria-hidden="true">&times;</span>
   </button>

@@ -3,39 +3,46 @@ class HomesController < ApplicationController
   public
   def new
     @home = Home.new()
+    @session = Session.new()
+    logger.error("SESSION: #{session['uid']}")
   end
 
   def create
     begin
-      @user = User.new(params[:user])
-      @user.build_profile(params[:profile])
+      @session = Session.new
 
-      if @user.valid?
-        @user.save
-
+      if session[:uid].present?
+        @user = User.where(id: session[:uid]).try(:first)
         @home = Home.new(params[:home])
-        @home.user_id = @user.present? ? @user.id : User.where(email: params[:user][:email]).try(:first).id
+        @home.user_id = @user.id
         if @home.valid?
           @home.status = 'pending'
           @home.token = SecureRandom.uuid
           @home.save
+          flash[:success] = "Thank you, we have received your quote request. An agent will contact you shortly regarding your new quote."
         end
-
-        flash[:success] = "Thank you, we have received your quote request. An agent will contact you shortly regarding your new quote."
-
-        @user = User.where(email: params[:user][:email]).try(:first)
-        @homes = @user.homes
-
-        # Notifications.home_quote_request(@user, @homes).deliver_now
       else
-        # reload the form with values
         @user = User.new(params[:user])
         @user.build_profile(params[:profile])
-        @home = Home.new(params[:home])
-        @user.valid?
-        @home.valid?
-        render action: 'new'
-        return
+        if @user.valid?
+          @user.save
+          @home = Home.new(params[:home])
+          @home.user_id = @user.present? ? @user.id : User.where(email: params[:user][:email]).try(:first).id
+          if @home.valid?
+            @home.status = 'pending'
+            @home.token = SecureRandom.uuid
+            @home.save
+            flash[:success] = "Thank you, we have received your quote request. An agent will contact you shortly regarding your new quote."
+          end
+        else
+          @user = User.new(params[:user])
+          @user.build_profile(params[:profile])
+          @home = Home.new(params[:home])
+          @user.valid?
+          @home.valid?
+          render action: 'new'
+          return
+        end
       end
 
       respond_to do |format|

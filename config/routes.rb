@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   resources :homes
   resources :autos
   resources :agents
+  resources :sessions
 
   # Example resource route with options:
   #   resources :products do
@@ -66,7 +67,8 @@ Rails.application.routes.draw do
   get 'agent_login' => 'agents#login'
   post 'agent_auth' => 'agents#auth'
   get 'agent_logout' => 'agents#logout'
-  get 'user_login' => 'user#login'
+  post 'user_login' => 'users#login'
   post 'users_check_exist' => 'users#users_check_exist'
+  get 'session_logout' => 'sessions#logout'
 
 end

@@ -1,13 +1,25 @@
 <%= form_for @home,  html: { 'data-parsley-validate': true } do |f| %>
-<%= render "application/error_messages", :target => @home %>
-<div class="large-9 large-centered">
+
+    <% if session[:uid].present? %>
+        <div class="large-6 large-centered">
+    <% else %>
+        <div class="large-9 large-centered">
+    <% end %>
+
     <h4 class="small-12 collapse columns text-center">
         Home Insurance Quote
     </h4>
-    <div class="large-6 columns form-background">
-        <%= render 'application/form_basic_user' %>
-    </div>
-    <div class="large-6 columns form-background">
+    <%= render "application/error_messages", :target => @home %>
+    <% if session[:uid].blank? %>
+        <div class="large-6 columns form-background">
+            <%= render 'application/form_basic_user' %>
+        </div>
+    <% end %>
+    <% if session[:uid].present? %>
+        <div class="columns form-background">
+    <% else %>
+        <div class="large-6 columns form-background">
+    <% end %>
         <div class="small-12 collapse columns text-center">
             <h5>Property Information</h5>
         </div>

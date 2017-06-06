@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170605022503) do
+ActiveRecord::Schema.define(version: 20170605185818) do
 
   create_table "agents", force: :cascade do |t|
     t.string   "login",       limit: 255
@@ -93,6 +93,13 @@ ActiveRecord::Schema.define(version: 20170605022503) do
     t.string   "total_premium",                    limit: 255
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
+  end
+
+  create_table "sessions", force: :cascade do |t|
+    t.string   "email",      limit: 255
+    t.string   "password",   limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "users", force: :cascade do |t|
