@@ -6,8 +6,10 @@ class ApplicationController < ActionController::Base
   before_action :verify_logged_in
 
   def verify_logged_in
-    user_email = User.find(session[:uid]).try(:email)
-    @signed_in = "Signed in as #{user_email}"
+    if session[:uid].present?
+      user_email = User.find(session[:uid]).try(:email)
+      @signed_in = "Signed in as #{user_email}"
+    end
   end
 
   private
