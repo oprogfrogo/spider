@@ -20,7 +20,7 @@ agents = Agent.create([
 
 quotes = Quote.create([
   {
-    kind: 'home',
+    kind: 'auto',
     promo_date: '2017-06-01',
     category: 'bronze',
     carrier: 'Tokio Marine USA',
@@ -36,7 +36,7 @@ quotes = Quote.create([
     total_premium: '$200 / Month'
   },
   {
-    kind: 'home',
+    kind: 'auto',
     promo_date: '2017-06-01',
     category: 'silver',
     carrier: 'Tokio Marine USA',
@@ -52,7 +52,7 @@ quotes = Quote.create([
     total_premium: '$400 / Month'
   },
   {
-    kind: 'home',
+    kind: 'auto',
     promo_date: '2017-06-01',
     category: 'gold',
     carrier: 'Tokio Marine USA',
