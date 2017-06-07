@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   resources :autos
   resources :agents
   resources :sessions
+  resources :registrations
 
   # Example resource route with options:
   #   resources :products do

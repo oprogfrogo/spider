@@ -18,7 +18,7 @@
             </div>
             <div class="title-bar-title large-10 small-10 text-center">
                 <%= link_to(root_url) do %>
-                    <%= image_tag 'spider_policy_man.png', style: 'height: 27px' %>
+                    <%= image_tag 'spider_policy_man.png', style: 'height: 60px' %>
                 <% end %>
             </div>
             <div class="title-bar-right large-1 small-1">
@@ -27,6 +27,7 @@
         </div>
         <div class="row column">
             <div class="off-canvas-wrapper">
+                <div class="text-right"><%= @signed_in %></div>
                 <div class="off-canvas position-left" id="offCanvasLeft" data-off-canvas>
                     <ul>
                         <%= link_to '<li><button class="button large-11 small-11"><i class="fa fa-home"></i> Home</button></li>'.html_safe, new_home_url %>

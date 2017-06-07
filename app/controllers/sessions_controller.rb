@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
 
   def index
     @session = Session.new()
+    @registration = Registration.new()
   end
 
   def create
