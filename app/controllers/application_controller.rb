@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
 
   def verify_logged_in
     if Rails.cache.read('uid').present?
-      user_email = User.where(id: Rails.cache.read('uid')).try(:email)
+      user_email = User.where(id: Rails.cache.read('uid')).try(:first).try(:email)
       @signed_in = "Signed in as #{user_email}" if user_email.present?
     end
   end
