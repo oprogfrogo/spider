@@ -8,15 +8,15 @@
     </div>
 
     <div id="spider_logo" class="show-for-medium-up">
-        <%= image_tag 'spider_policy_mascot.png', id: "spider-mascot", class: "large-12 small-4" %>
+        <%= image_tag 'spider_policy_mascot.png', id: "spider-mascot", class: "small-4 medium-9 large-12" %>
     </div>
 
     <%= form_tag 'store_zip' do %>
-    <div class="large-6 small-8 small-centered large-centered">
-        <div class="small-6 collapse columns text-center">
+    <div class="large-6 medium-4 small-8 small-centered large-centered">
+        <div class="small-6 medium-6 collapse columns text-center">
             <%= text_field_tag :postal_code, nil, placeholder: "Zip Code" %>
         </div>
-        <div class="small-6 columns text-center">
+        <div class="small-6 columns text-center" style="white-space: nowrap">
             <%= button_tag 'Start Quote', class: 'button' %>
         </div>
     </div>

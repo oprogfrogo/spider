@@ -27,11 +27,17 @@ ul {
 }
 
 .title-bar {
+    height: 80px;
     background: #1C509D;
 }
 
+.title-bar-left, .title-bar-right {
+    top: 16px;
+    position: relative;
+}
+
 .off-canvas {
-    top: 43px;
+    top: 80px;
     padding-top: 20px;
 }
 
@@ -123,10 +129,14 @@ ul {
   margin-top: 10px;
 }
 
+@media (max-width: 1024px) {
+    #spider_logo {
+        left: -30px;
+    }
+}
+
 @media (max-width: 768px) {
-    #spider-mascot {
-        position: relative;
-        top: 7px;
+    #spider_logo {
         left: -80px;
     }
 }
