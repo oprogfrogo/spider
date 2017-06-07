@@ -35,10 +35,9 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'twilio-ruby', '~> 4.11.1'
 gem 'parsley-rails', '~> 2.7.0.0'
-
 gem 'sendgrid', '~> 1.2.4'
-
 gem 'jquery-datatables-rails', '~> 3.4.0'
+gem 'dalli'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

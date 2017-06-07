@@ -7,6 +7,7 @@ class SessionsController < ApplicationController
   def create
     @user = User.where({email: params[:email], password: params[:password]}).try(:first)
     session[:uid] = @user.id if @user.present?
+    Rails.cache.write('uid', @user.id) if @user.present?
 
     respond_to do |format|
       format.html { redirect_to new_home_url }
