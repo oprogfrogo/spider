@@ -9,8 +9,8 @@ class AutosController < ApplicationController
     begin
       @session = Session.new
 
-      if Rails.cache.read('uid').present?
-        @user = User.where(id: Rails.cache.read('uid')).try(:first)
+      if Rails.cache.read("uid-#{session.id}").present?
+        @user = User.where(id: Rails.cache.read("uid-#{session.id}")).try(:first)
         @home = Auto.new(params[:auto])
         @home.user_id = @user.id
         if @home.valid?

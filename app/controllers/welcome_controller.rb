@@ -4,7 +4,7 @@ class WelcomeController < ApplicationController
 
   public
   def store_zip
-    Rails.cache.write('postal_code', params[:postal_code])
+    Rails.cache.write("postal_code-#{session.id}", params[:postal_code])
     respond_to do |format|
       format.html { redirect_to :new_home }
     end
