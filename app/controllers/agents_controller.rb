@@ -53,7 +53,7 @@ class AgentsController < ApplicationController
   end
 
   def logout
-    Rails.cache.delete('agent') = nil
+    Rails.cache.delete('agent')
 
     respond_to do |format|
       format.html { redirect_to action: 'login'}
