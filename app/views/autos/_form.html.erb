@@ -1,6 +1,6 @@
 <%= form_for @auto, html: { 'data-parsley-validate': true } do |f| %>
 
-    <% if session[:uid].present? %>
+    <% if Rails.cache.read('uid').present? %>
         <div class="large-6 large-centered">
     <% else %>
         <div class="large-9 large-centered">
@@ -8,13 +8,13 @@
 
     <h4 class="small-12 collapse columns text-center">Auto Insurance Quote</h4>
 
-    <% if session[:uid].blank? %>
+    <% if Rails.cache.read('uid').blank? %>
         <div class="large-6 columns form-background">
             <%= render 'application/form_basic_user' %>
         </div>
     <% end %>
 
-    <% if session[:uid].present? %>
+    <% if Rails.cache.read('uid').present? %>
         <div class="columns form-background">
     <% else %>
         <div class="large-6 columns form-background">

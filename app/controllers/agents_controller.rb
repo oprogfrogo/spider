@@ -3,9 +3,9 @@ class AgentsController < ApplicationController
   layout 'agents'
 
   def homes
-    if session[:agent].present?
+    if Rails.cache.read('agent').present?
       @agent = Agent.new
-      session[:quote_token] = params[:quote_token] if params[:quote_token].present?
+      Rails.cache.write('quote_token', params[:quote_token]) if params[:quote_token].present?
 
       @home_quotes = Home.all
       @quotes = Quote.where(kind: 'home').collect(&:promo_date).uniq
@@ -15,9 +15,9 @@ class AgentsController < ApplicationController
   end
 
   def autos
-    if session[:agent].present?
+    if Rails.cache.read('agent').present?
       @agent = Agent.new
-      session[:quote_token] = params[:quote_token] if params[:quote_token].present?
+      Rails.cache.write('quote_token', params[:quote_token]) if params[:quote_token].present?
 
       @auto_quotes = Auto.all
       @quotes = Quote.where(kind: 'auto').collect(&:promo_date).uniq
@@ -30,7 +30,7 @@ class AgentsController < ApplicationController
     if params[:agent].present?
       agent = Agent.where(params[:agent]).try(:first)
 
-      session[:agent] = agent.login if agent.present?
+      Rails.cache.write('agent', agent.login) if agent.present?
     end
 
     respond_to do |format|
@@ -41,7 +41,7 @@ class AgentsController < ApplicationController
   def auth
     agent = Agent.where({ login: params[:login], password: params[:password] }).try(:first)
     if agent.present?
-      session[:agent] = agent.login
+      Rails.cache.write('agent', agent.login)
     else
       flash[:alert] = 'Invalid username or password'
       redirect_to action: 'login'
@@ -53,7 +53,7 @@ class AgentsController < ApplicationController
   end
 
   def logout
-    session[:agent] = nil
+    Rails.cache.delete('agent') = nil
 
     respond_to do |format|
       format.html { redirect_to action: 'login'}

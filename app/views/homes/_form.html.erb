@@ -1,6 +1,6 @@
 <%= form_for @home, html: { 'data-parsley-validate': true } do |f| %>
 
-    <% if session[:uid].present? %>
+    <% if Rails.cache.read('uid').present? %>
         <div class="large-6 large-centered">
     <% else %>
         <div class="large-9 large-centered">
@@ -10,12 +10,12 @@
         Home Insurance Quote
     </h4>
     <%= render "application/error_messages", :target => @home %>
-    <% if session[:uid].blank? %>
+    <% if Rails.cache.read('uid').blank? %>
         <div class="large-6 columns form-background">
             <%= render 'application/form_basic_user' %>
         </div>
     <% end %>
-    <% if session[:uid].present? %>
+    <% if Rails.cache.read('uid').present? %>
         <div class="columns form-background">
     <% else %>
         <div class="large-6 columns form-background">
@@ -41,7 +41,7 @@
         </div>
         <div class="small-12 collapse columns text-center">
             <label class="text-left">Postal Code</label>
-            <%= f.text_field :postal_code, value: ( f.object.postal_code || session[:postal_code] ), placeholder: "Postal Code", required: true %>
+            <%= f.text_field :postal_code, value: ( f.object.postal_code || Rails.cache.read('postal_code') ), placeholder: "Postal Code", required: true %>
         </div>
         <div class="small-12 collapse columns text-center">
             <label class="text-left">Year Built</label>

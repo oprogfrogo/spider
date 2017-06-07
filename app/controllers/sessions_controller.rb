@@ -6,7 +6,6 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.where({email: params[:email], password: params[:password]}).try(:first)
-    session[:uid] = @user.id if @user.present?
     Rails.cache.write('uid', @user.id) if @user.present?
 
     respond_to do |format|
@@ -15,7 +14,7 @@ class SessionsController < ApplicationController
   end
 
   def logout
-    session[:uid] = nil
+    Rails.cache.delete('uid')
 
     respond_to do |format|
       format.html { redirect_to root_url }

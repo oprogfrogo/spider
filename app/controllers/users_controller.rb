@@ -16,7 +16,7 @@ class UsersController < ApplicationController
     @user = User.where({email: params[:email], password: params[:password]})
 
     if @user.present?
-      session[:uid] = @user.id
+      Rails.cache.write('uid', @user.id)
     end
 
     respond_to do |format|

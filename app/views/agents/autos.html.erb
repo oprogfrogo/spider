@@ -1,4 +1,4 @@
-<% if session[:agent].blank? %>
+<% if Rails.cache.read('agent').blank? %>
     <div class="large-3 large-centered">
         <%= form_tag(agent_login_url) do %>
         Username:

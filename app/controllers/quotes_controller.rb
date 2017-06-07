@@ -20,7 +20,7 @@ class QuotesController < ApplicationController
         home.save
       }
 
-      agent = Agent.find_by_login(session[:agent])
+      agent = Agent.find_by_login(Rails.cache.read('agent'))
 
       if agent.blank?
         flash[:alert] = "Please login as an agent before performing agent tasks"

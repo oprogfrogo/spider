@@ -4,15 +4,15 @@ class HomesController < ApplicationController
   def new
     @home = Home.new()
     @session = Session.new()
-    logger.error("SESSION: #{session['uid']}")
+    logger.error("SESSION: #{Rails.cache.read('uid')}")
   end
 
   def create
     begin
       @session = Session.new
 
-      if session[:uid].present?
-        @user = User.where(id: session[:uid]).try(:first)
+      if Rails.cache.read('uid').present?
+        @user = User.where(id: Rails.cache.read('uid')).try(:first)
         @home = Home.new(params[:home])
         @home.user_id = @user.id
         if @home.valid?
