@@ -30,20 +30,25 @@
                 <div class="text-right"><%= @signed_in %></div>
                 <div class="off-canvas position-left" id="offCanvasLeft" data-off-canvas>
                     <ul>
-                        <%= link_to '<li><button class="button large-11 small-11"><i class="fa fa-home"></i> Home</button></li>'.html_safe, new_home_url %>
-                        <%= link_to '<li><button class="button large-11 small-11"><i class="fa fa-bus"></i> Auto</button></li>'.html_safe, new_auto_url %>
+                        <%= link_to '<li><button class="button large-12 small-12"><i class="fa fa-home"></i> Home</button></li>'.html_safe, new_home_url %>
+                        <%= link_to '<li><button class="button large-12 small-12"><i class="fa fa-bus"></i> Auto</button></li>'.html_safe, new_auto_url %>
+                        <hr />
+                        <%= link_to '<li><button class="button large-12 small-12"><i class="fa fa-info"></i> About</button></li>'.html_safe, about_url %>
+                        <%= link_to '<li><button class="button large-12 small-12"><i class="fa fa-phone"></i> Contact Us</button></li>'.html_safe, contact_us_url %>
+                        <%= link_to '<li><button class="button large-12 small-12"><i class="fa fa-lock"></i> Privay Policy</button></li>'.html_safe, privay_policy_url %>
+                        <%= link_to '<li><button class="button large-12 small-12"><i class="fa fa-balance-scale"></i> Claims</button></li>'.html_safe, claims_url %>
                     </ul>
                 </div>
                 <div class="off-canvas position-right" id="offCanvasRight" data-off-canvas>
                     <ul>
                         <% if Rails.cache.read("uid-#{session.id}").blank? %>
-                            <%= link_to '<li><button class="button large-11 small-11"><i class="fa fa-user"></i> Login</button></li>'.html_safe, sessions_url %>
-                            <%= link_to '<li><button class="button large-11 small-11"><i class="fa fa-user"></i> Sign Up</button></li>'.html_safe, new_registration_url %>
+                            <%= link_to '<li><button class="button large-12 small-12"><i class="fa fa-user"></i> Login</button></li>'.html_safe, sessions_url %>
+                            <%= link_to '<li><button class="button large-12 small-12"><i class="fa fa-user"></i> Sign Up</button></li>'.html_safe, new_registration_url %>
                         <% end %>
                         <% if Rails.cache.read("uid-#{session.id}").present? %>
-                            <%= link_to '<li><button class="button large-11 small-11"><i class="fa fa-user"></i> Logout</button></li>'.html_safe, session_logout_url %>
+                            <%= link_to '<li><button class="button large-12 small-12"><i class="fa fa-user"></i> Logout</button></li>'.html_safe, session_logout_url %>
                         <% end %>
-                        <%= link_to '<li><button class="button large-11 small-11"><i class="fa fa-user-o"></i> Agent Login</button></li>'.html_safe, agents_url %>
+                        <%= link_to '<li><button class="button large-12 small-12"><i class="fa fa-user-o"></i> Agent Login</button></li>'.html_safe, agents_url %>
                     </ul>
                 </div>
             </div>
