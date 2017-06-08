@@ -19,6 +19,7 @@ Rails.application.routes.draw do
   resources :agents
   resources :sessions
   resources :registrations
+  resources :quotes
 
   # Example resource route with options:
   #   resources :products do
@@ -60,19 +61,23 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
 
-  post 'store_zip' => 'welcome#store_zip'
+  get 'about' => 'welcome#about'
+  get 'contact_us' => 'welcome#contact_us'
+  get 'privay_policy' => 'welcome#privay_policy'
+  get 'claims' => 'welcome#claims'
   get 'homes' => 'homes#new'
   get 'approve_home_request' => 'homes#approve_home_request'
-  post 'send_quote' => 'quotes#send_quote'
-  post 'home_insurance_quote' => 'welcome#home_insurance_quote'
   get 'agent_login' => 'agents#login'
-  post 'agent_auth' => 'agents#auth'
   get 'agent_logout' => 'agents#logout'
-  post 'user_login' => 'users#login'
-  post 'users_check_exist' => 'users#users_check_exist'
   get 'session_logout' => 'sessions#logout'
   get 'agent_homes' => 'agents#homes'
   get 'agent_autos' => 'agents#autos'
   get 'confirm_email' => 'registrations#confirm_email'
 
+  post 'store_zip' => 'welcome#store_zip'
+  post 'send_quote' => 'quotes#send_quote'
+  post 'home_insurance_quote' => 'welcome#home_insurance_quote'
+  post 'agent_auth' => 'agents#auth'
+  post 'user_login' => 'users#login'
+  post 'users_check_exist' => 'users#users_check_exist'
 end
