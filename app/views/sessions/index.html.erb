@@ -1,6 +1,14 @@
 <div class="row">
-    <div class="small-12 large-7 large-centered">
-        <%= render 'login' %>
-        <%= render 'register' %>
+    <div class="small-12 large-5 large-centered columns">
+        <div class="large-12 column">
+            <%= form_for @session do %>
+                <h4>Returning Customer</h4>
+                <label>Email:</label>
+                <%= text_field_tag 'email' %>
+                <label>Password:</label>
+                <%= password_field_tag 'password' %>
+                <%= submit_tag 'Log In', class: 'button' %>
+            <% end %>
+        </div>
     </div>
 </div>

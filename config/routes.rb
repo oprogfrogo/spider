@@ -73,5 +73,6 @@ Rails.application.routes.draw do
   get 'session_logout' => 'sessions#logout'
   get 'agent_homes' => 'agents#homes'
   get 'agent_autos' => 'agents#autos'
+  get 'confirm_email' => 'registrations#confirm_email'
 
 end

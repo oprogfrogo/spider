@@ -37,7 +37,8 @@
                 <div class="off-canvas position-right" id="offCanvasRight" data-off-canvas>
                     <ul>
                         <% if Rails.cache.read("uid-#{session.id}").blank? %>
-                            <%= link_to '<li><button class="button large-11 small-11"><i class="fa fa-user"></i> Customer Login</button></li>'.html_safe, sessions_url %>
+                            <%= link_to '<li><button class="button large-11 small-11"><i class="fa fa-user"></i> Login</button></li>'.html_safe, sessions_url %>
+                            <%= link_to '<li><button class="button large-11 small-11"><i class="fa fa-user"></i> Sign Up</button></li>'.html_safe, new_registration_url %>
                         <% end %>
                         <% if Rails.cache.read("uid-#{session.id}").present? %>
                             <%= link_to '<li><button class="button large-11 small-11"><i class="fa fa-user"></i> Logout</button></li>'.html_safe, session_logout_url %>
