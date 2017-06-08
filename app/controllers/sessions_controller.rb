@@ -7,7 +7,15 @@ class SessionsController < ApplicationController
 
   def create
     @user = User.where({email: params[:email], password: params[:password]}).try(:first)
-    Rails.cache.write("uid-#{session.id}", @user.id) if @user.present?
+
+    if @user.present?
+      Rails.cache.write("uid-#{session.id}", @user.id)
+      flash[:success] = "Welcome back! Start your insurance quote."
+    else
+      flash[:alert] = "Could not find an account with that email or password"
+      redirect_to sessions_path
+      return
+    end
 
     respond_to do |format|
       format.html { redirect_to new_home_url }
