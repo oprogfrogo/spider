@@ -129,6 +129,10 @@ ul {
   margin-top: 10px;
 }
 
+.spider_policy_man {
+    height: 60px;
+}
+
 @media (max-width: 1024px) {
     #spider_logo {
         left: -30px;
@@ -138,5 +142,11 @@ ul {
 @media (max-width: 768px) {
     #spider_logo {
         left: -80px;
+    }
+
+    .spider_policy_man {
+        position: relative;
+        top: 10px;
+        height: 45px;
     }
 }
