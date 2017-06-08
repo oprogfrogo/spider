@@ -2,6 +2,14 @@ class QuotesController < ApplicationController
 
   before_action :twilio, only: [:send_quote]
 
+  def show
+    @quotes = Quote.all
+
+    respond_to do |format|
+      format.html
+    end
+  end
+
   def send_quote
     promo_dates_passed = true
 
