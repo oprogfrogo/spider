@@ -18,8 +18,9 @@ class Notifications < ApplicationMailer
     mail(to: @user.email, subject: 'Home Quote Approval!')
   end
 
-  def new_user(user)
+  def new_user(user, domain)
     @user = user
+    @domain = domain
 
     mail(to: @user.email, subject: 'Please confirm your email')
   end

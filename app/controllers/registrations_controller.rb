@@ -12,7 +12,7 @@ class RegistrationsController < ApplicationController
     @user = User.create(params[:user])
 
     if @user.valid?
-      Notifications.new_user(@user).deliver_now
+      Notifications.new_user(@user, request.domain).deliver_now
       flash.now[:success] = "Please check your email to confirm your email address."
     end
 
