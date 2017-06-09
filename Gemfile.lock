@@ -116,6 +116,8 @@ GEM
       thor (>= 0.18.1, < 2.0)
     rake (12.0.0)
     rdoc (4.3.0)
+    recaptcha (4.1.0)
+      json
     sass (3.4.23)
     sass-rails (5.0.6)
       railties (>= 4.0.0, < 6)
@@ -164,13 +166,14 @@ PLATFORMS
 DEPENDENCIES
   byebug
   coffee-rails (~> 4.1.0)
-  dalli
+  dalli (~> 2.7.6)
   jbuilder (~> 2.0)
   jquery-datatables-rails (~> 3.4.0)
-  jquery-rails
+  jquery-rails (~> 4.3.1)
   mysql2 (>= 0.3.13, < 0.5)
   parsley-rails (~> 2.7.0.0)
   rails (= 4.2.7)
+  recaptcha (= 4.1.0)
   sass-rails (~> 5.0)
   sdoc (~> 0.4.0)
   sendgrid (~> 1.2.4)

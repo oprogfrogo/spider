@@ -31,6 +31,17 @@ class WelcomeController < ApplicationController
     redirect_to action: :index
   end
 
+  def contact_us
+    if request.post? && verify_recaptcha()
+      Notifications.contact_us(params[:contact]).deliver_now
+      flash[:success] = "Thank you, you message has been sent. Someone will contact you back shortly"
+    end
+
+    respond_to do |format|
+      format.html
+    end
+  end
+
   private
   def user_params
     params.require(:user).permit(:full_name, :phone, :email, :street, :street2, :city, :state, :zip)

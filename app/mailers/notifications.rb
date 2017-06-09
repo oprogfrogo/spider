@@ -25,4 +25,10 @@ class Notifications < ApplicationMailer
     mail(to: @user.email, subject: 'Please confirm your email')
   end
 
+  def contact_us(contact)
+    @contact = contact
+
+    mail(to: Global::DefaultCompanyEmail, subject: 'New Comment From spiderpolicy.com Website' )
+  end
+
 end

@@ -80,4 +80,5 @@ Rails.application.routes.draw do
   post 'agent_auth' => 'agents#auth'
   post 'user_login' => 'users#login'
   post 'users_check_exist' => 'users#users_check_exist'
+  post 'contact_us' => 'welcome#contact_us'
 end

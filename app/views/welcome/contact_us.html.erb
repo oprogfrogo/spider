@@ -1,0 +1,17 @@
+<div class="row">
+    <div class="small-12 medium-6 large-centered">
+        <%= form_tag contact_us_path do %>
+            <h3>Contact Us</h3>
+            <label>Name:</label>
+            <%= text_field_tag 'contact[name]' %>
+            <label>Email Address:</label>
+            <%= text_field_tag 'contact[email]' %>
+            <label>Phone Number:</label>
+            <%= text_field_tag 'contact[phone]' %>
+            <label>Questions or Comments:</label>
+            <%= text_field_tag 'contact[comments]' %>
+            <%= recaptcha_tags %>
+            <%= submit_tag 'Send', class: 'button float-right' %>
+        <% end %>
+    </div>
+</div>

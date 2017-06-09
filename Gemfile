@@ -15,7 +15,7 @@ gem 'coffee-rails', '~> 4.1.0'
 # gem 'therubyracer', platforms: :ruby
 
 # Use jquery as the JavaScript library
-gem 'jquery-rails'
+gem 'jquery-rails', '~> 4.3.1'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
 # gem 'turbolinks'
 
@@ -37,7 +37,8 @@ gem 'twilio-ruby', '~> 4.11.1'
 gem 'parsley-rails', '~> 2.7.0.0'
 gem 'sendgrid', '~> 1.2.4'
 gem 'jquery-datatables-rails', '~> 3.4.0'
-gem 'dalli'
+gem 'dalli', '~> 2.7.6'
+gem "recaptcha", '4.1.0', require: "recaptcha/rails"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
