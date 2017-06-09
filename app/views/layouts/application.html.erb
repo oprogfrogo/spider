@@ -61,8 +61,9 @@
             </div>
             <%= yield %>
         </div>
-        <div id="footer" class="large-12 small-12 columns text-center">
-            <%= image_tag 'partners.jpg' %>
+        <div id="footer" class="large-12 small-12 columns text-center" data-toggler data-animate="hinge-in-from-top hinge-out-from-top" >
+            <button id="footer-button" class="button tiny" data-toggle="footer">X</button>
+            <%= image_tag 'partners_slim.png' %>
         </div>
     </body>
 </html>
