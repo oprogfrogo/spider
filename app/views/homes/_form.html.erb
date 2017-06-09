@@ -45,7 +45,7 @@
         </div>
         <div class="small-12 collapse columns text-center">
             <label class="text-left">Year Built</label>
-            <%= f.select :year_built, (100.years.ago.year..Time.now.year).to_a.reverse, :include_blank => "Year Built", required: true %>
+            <%= f.select :year_built, (100.years.ago.year..Time.now.year).to_a.reverse, :include_blank => "Choose Year", required: true %>
         </div>
         <div class="small-12 collapse columns text-center">
             <label class="text-left">Alarm System</label>

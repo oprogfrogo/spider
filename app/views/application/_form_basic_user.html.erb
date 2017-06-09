@@ -24,7 +24,7 @@
 </div>
 <div class="small-12 collapse columns text-center date">
     <label class="text-left">Date of Birth</label>
-    <%= date_select 'profile', 'dob', {order: [:month, :day, :year], prompt: { day: 'Day', month: 'Month', year: 'Year' }, start_year: Date.today.year - 18, end_year: Date.today.year - 100, selected: @user.try(:profile).try(:dob)}, { required: true } %>
+    <%= date_select 'profile', 'dob', {order: [:month, :day, :year], prompt: { day: 'DD', month: 'MM', year: 'YYYY' }, start_year: Date.today.year - 18, end_year: Date.today.year - 100, selected: @user.try(:profile).try(:dob)}, { required: true } %>
 </div>
 <div class="small-12 collapse columns text-center">
     <label class="text-left">Driver's License Number</label>
