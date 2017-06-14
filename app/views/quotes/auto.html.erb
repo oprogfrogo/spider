@@ -3,6 +3,7 @@
         <table class="datatable display responsive no-wrap">
             <thead>
                 <tr>
+                    <th>Action</th>
                     <th>ID</th>
                     <th>Kind</th>
                     <th>Promo</th>
@@ -25,6 +26,7 @@
             <tbody>
                 <% @quotes.each {|quote| %>
                 <tr>
+                    <td><a href='/edit_quotes_auto?id=<%= quote.id %>' class='button'>Edit</a></td>
                     <td><%= quote.id %></td>
                     <td><%= quote.kind %></td>
                     <td><%= quote.promo_date %></td>
@@ -46,76 +48,12 @@
                 <% } %>
             </tbody>
         </table>
-        <button class='button'>Submit</button>
     </div>
     <script>
         $(document).ready(function() {
-            var editor;
-
-            editor = new $.fn.dataTable.Editor( {
-            	ajax: "../php/staff.php",
-            	table: ".datatable",
-            	fields: [{
-            		label: "id",
-            		name: "id"
-                    }, {
-            		label: "kind",
-            		name: "kind"
-                    }, {
-            		label: "promo_date",
-            		name: "promo_date"
-                    }, {
-            		label: "category",
-            		name: "category"
-                    }, {
-            		label: "carrier",
-            		name: "carrier"
-                    }, {
-            		label: "bodily_injury_liability",
-            		name: "bodily_injury_liability"
-                    }, {
-            		label: "property_damage_liability",
-            		name: "property_damage_liability"
-                    }, {
-            		label: "medical_payments",
-            		name: "medical_payments"
-                    }, {
-            		label: "uninsured_motorist_bodily_injury",
-            		name: "uninsured_motorist_bodily_injury"
-                    }, {
-            		label: "comprehensive",
-            		name: "comprehensive"
-                    }, {
-            		label: "collision",
-            		name: "collision"
-                    }, {
-            		label: "waiver_of_collision_deductible",
-            		name: "waiver_of_collision_deductible"
-                    }, {
-            		label: "rental_reimbursement",
-            		name: "rental_reimbursement"
-                    }, {
-            		label: "roadside_coverage",
-            		name: "roadside_coverage"
-                    }, {
-            		label: "total_premium",
-            		name: "total_premium"
-                    }, {
-            		label: "created_at",
-            		name: "created_at"
-                    }, {
-            		label: "updated_at",
-            		name: "updated_at"
-            	}]
+            $('.datatable').DataTable({
+                "scrollX": true
             });
-
-            $('.datatable').on( 'click', 'tbody td:not(:first-child)', function (e) {
-                editor.inline( this );
-            } );
-
-            // Datatables
-            var table = $('.datatable').DataTable({
-            });
-        } );
+        });
     </script>
 <% end %>

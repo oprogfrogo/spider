@@ -1,0 +1,17 @@
+<div class='row'>
+    <div class='large-4 large-centered text-center'>
+        <h3>Edit Quotes</h3>
+    </div>
+    <div class='large-4 large-centered'>
+        <%= select_tag :home_quotes, options_for_select(@home_promos), include_blank: "Choose Home Promo to Edit", onchange: "goFunc(this.value, 'home')" %>
+    </div>
+    <div class='large-4 large-centered'>
+        <%= select_tag :auto_quotes, options_for_select(@auto_promos), include_blank: "Choose Auto Promo to Edit", onchange: "goFunc(this.value, 'auto')" %>
+    </div>
+</div>
+
+<script>
+    function goFunc(value, type) {
+        window.location = "/quotes_"+ type +"?d="+value
+    }
+</script>

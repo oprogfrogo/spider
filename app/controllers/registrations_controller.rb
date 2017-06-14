@@ -12,8 +12,24 @@ class RegistrationsController < ApplicationController
     @user = User.create(params[:user])
 
     if @user.valid?
-      Notifications.new_user(@user, request.domain).deliver_now
+      Notifications.new_user(@user, request.base_url).deliver_now
       flash.now[:success] = "Please check your email to confirm your email address."
+    end
+
+    respond_to do |format|
+      format.html { render new_registration_path }
+    end
+  end
+
+  def resend_confirmation_email
+    @user = User.find(Rails.cache.read("uid-#{session.id}"))
+    if @user.present?
+      Notifications.new_user(@user, request.base_url).deliver_now
+      flash.now[:success] = "Please check your email to confirm your email address."
+      redirect_to client_login_path
+      return
+    else
+      flash.now[:alert] = "Oops! Something went wrong. Please register again."
     end
 
     respond_to do |format|

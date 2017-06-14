@@ -1,0 +1,59 @@
+<% if @quotes.present? %>
+    <div class="large-10 large-centered">
+        <table class="datatable display responsive no-wrap">
+            <thead>
+                <tr>
+                    <th>Action</th>
+                    <th>ID</th>
+                    <th>Kind</th>
+                    <th>Promo</th>
+                    <th>Category</th>
+                    <th>Carrier</th>
+                    <th>Bodily Injury Liability</th>
+                    <th>Property Damage Liability</th>
+                    <th>Medical Payments</th>
+                    <th>Uninsured_motorist_bodily_injury</th>
+                    <th>Comprehensive</th>
+                    <th>Collision</th>
+                    <th>Waiver Of Collision Deductible</th>
+                    <th>Rental Reimbursement</th>
+                    <th>Roadside Coverage</th>
+                    <th>Total Premium</th>
+                    <th>Created At</th>
+                    <th>Updated At</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @quotes.each {|quote| %>
+                <tr>
+                    <td><a href='/edit_quotes_auto?id=<%= quote.id %>' class='button'>Edit</a></td>
+                    <td><%= quote.id %></td>
+                    <td><%= quote.kind %></td>
+                    <td><%= quote.promo_date %></td>
+                    <td><%= quote.category %></td>
+                    <td><%= quote.carrier %></td>
+                    <td><%= quote.bodily_injury_liability %></td>
+                    <td><%= quote.property_damage_liability %></td>
+                    <td><%= quote.medical_payments %></td>
+                    <td><%= quote.uninsured_motorist_bodily_injury %></td>
+                    <td><%= quote.comprehensive %></td>
+                    <td><%= quote.collision %></td>
+                    <td><%= quote.waiver_of_collision_deductible %></td>
+                    <td><%= quote.rental_reimbursement %></td>
+                    <td><%= quote.roadside_coverage %></td>
+                    <td><%= quote.total_premium %></td>
+                    <td><%= quote.created_at %></td>
+                    <td><%= quote.updated_at %></td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+    <script>
+        $(document).ready(function() {
+            $('.datatable').DataTable({
+                "scrollX": true
+            });
+        });
+    </script>
+<% end %>

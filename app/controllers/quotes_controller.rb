@@ -2,12 +2,36 @@ class QuotesController < ApplicationController
 
   before_action :twilio, only: [:send_quote]
 
-  def show
-    @quotes = Quote.all
+  def index
+    @auto_promos = Quote.where(kind: 'auto')
+    @auto_promos = @auto_promos.collect(&:promo_date).uniq
+
+    @home_promos = Quote.where(kind: 'home')
+    @home_promos = @home_promos.collect(&:promo_date).uniq
+  end
+
+  def auto
+    @quotes = Quote.where(kind: 'auto', promo_date: params[:d])
 
     respond_to do |format|
       format.html
     end
+  end
+
+  def home
+    @quotes = Quote.where(kind: 'home', promo_date: params[:d])
+
+    respond_to do |format|
+      format.html
+    end
+  end
+
+  def edit
+    @quote_auto = Quote.find(params[:id])
+  end
+
+  def update
+
   end
 
   def send_quote

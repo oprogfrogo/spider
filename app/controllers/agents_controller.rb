@@ -9,19 +9,31 @@ class AgentsController < ApplicationController
 
       @home_quotes = Home.all
       @quotes = Quote.where(kind: 'home').collect(&:promo_date).uniq
+
+      if @home_quotes.blank?
+        flash[:alert] = "No results found for Homes"
+        render action: 'index'
+      end
     else
+      flash[:alert] = "Please login first."
       redirect_to action: 'login'
     end
   end
 
   def autos
-    if  Rails.cache.read("agent-#{session.id}")..present?
+    if Rails.cache.read("agent-#{session.id}")..present?
       @agent = Agent.new
       Rails.cache.write("quote_token-#{session.id}", params[:quote_token]) if params[:quote_token].present?
 
       @auto_quotes = Auto.all
       @quotes = Quote.where(kind: 'auto').collect(&:promo_date).uniq
+
+      if @auto_quotes.blank?
+        flash[:alert] = "No results found for Autos"
+        render action: 'index'
+      end
     else
+      flash[:alert] = "Please login first."
       redirect_to action: 'login'
     end
   end
@@ -45,6 +57,7 @@ class AgentsController < ApplicationController
     else
       flash[:alert] = 'Invalid username or password'
       redirect_to action: 'login'
+      return
     end
 
     respond_to do |format|

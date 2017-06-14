@@ -10,7 +10,13 @@ class SessionsController < ApplicationController
 
     if @user.present?
       Rails.cache.write("uid-#{session.id}", @user.id)
-      flash[:success] = "Welcome back! Start your insurance quote."
+      if @user.confirmed = 'N'
+        flash[:success] = "Please verify your email address first. We sent you an email with a link. Click here to resend."
+        redirect_to resend_confirmation_email_path
+        return
+      else
+        flash[:success] = "Welcome back! Start your insurance quote."
+      end
     else
       flash[:alert] = "Could not find an account with that email or password"
       redirect_to sessions_path
