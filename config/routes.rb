@@ -81,7 +81,8 @@ Rails.application.routes.draw do
   get 'edit_quotes_home' => 'quotes#edit_home'
 
   post 'store_zip' => 'welcome#store_zip'
-  post 'send_quote' => 'quotes#send_quote'
+  post 'send_quote_home' => 'quotes#send_quote_home'
+  post 'send_quote_auto' => 'quotes#send_quote_auto'
   post 'home_insurance_quote' => 'welcome#home_insurance_quote'
   post 'agent_auth' => 'agents#auth'
   post 'user_login' => 'users#login'

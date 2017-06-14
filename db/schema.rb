@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 20170614062020) do
     t.string   "model",      limit: 255
     t.string   "status",     limit: 255
     t.string   "token",      limit: 255
+    t.string   "promo_date", limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end

@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-agents = Agent.create([
+Agent.create([
   {
     login: 'simon',
     password: 'sdfsdf',

@@ -1,0 +1,44 @@
+<div>
+    <div><%= image_tag 'https://s3-us-west-2.amazonaws.com/spiderpolicy/spider_policy_man.png', width: '70%' %></div>
+    <div style="margin-top: 30px"><%= Date.today %></div>
+    <div style="margin-top: 30px">
+        <p><%= @user.profile.name %></p>
+        <p><%= @auto.vin %></p>
+        <p><%= @auto.year %></p>
+        <p><%= @auto.make %></p>
+        <p><%= @auto.model %></p>
+    </div>
+    <div style="margin-top: 30px">
+        <table id="home_quote_approve_table" cellpadding="5" cellspacing="0">
+            <thead>
+                <tr>
+                    <th style="background: #000; color: #fff;">Coverage</th>
+                    <th style="background: #000; color: #fff;">Bronze</th>
+                    <th style="background: #000; color: #fff;">Silver</th>
+                    <th style="background: #000; color: #fff;">Gold</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% (@quotes.column_names - ['id', 'kind', 'promo_date', 'category', 'created_at', 'updated_at']).each {|column| %>
+                    <tr>
+                        <td><%= column.titleize %></td>
+                        <% @quotes.each_with_index {|quote, index| %>
+                            <% case index
+                                when 0
+                                color='#ffc784'
+                                when 1
+                                color='#d3eeff'
+                                when 2
+                                color='#ffff3d'
+                                else
+                                color='#ffc784'
+                                end %>
+
+                            <td class="quote_column_<%= index %>" style="background: <%= color %>" ><%= quote[column] %></td>
+                        <% } %>
+                    <tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</div>

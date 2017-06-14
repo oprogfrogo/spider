@@ -8,6 +8,7 @@ class CreateAutos < ActiveRecord::Migration
       t.string :model
       t.string :status
       t.string :token
+      t.string :promo_date
 
       t.timestamps null: false
     end

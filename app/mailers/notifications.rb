@@ -18,6 +18,15 @@ class Notifications < ApplicationMailer
     mail(to: @user.email, subject: 'Home Quote Approval!')
   end
 
+  def auto_quote_approve(user, auto, agent, quotes)
+    @user = user
+    @auto = auto
+    @agent = agent
+    @quotes = quotes
+
+    mail(to: @user.email, subject: 'Auto Quote Approval!')
+  end
+
   def new_user(user, request)
     @user = user
     @domain = Rails.env.development? ? "#{request.protocol}#{request.host}:#{request.port}" : "http://spiderpolicy.xyz"
