@@ -2,39 +2,31 @@ class AgentsController < ApplicationController
 
   layout 'agents'
 
+  before_action :check_agent_auth, only: [:homes, :autos]
+
   def homes
-    if Rails.cache.read("agent-#{session.id}").present?
-      @agent = Agent.new
-      Rails.cache.write("quote_token-#{session.id}", params[:quote_token]) if params[:quote_token].present?
+    @agent = Agent.new
+    Rails.cache.write("quote_token-#{session.id}", params[:quote_token]) if params[:quote_token].present?
 
-      @home_quotes = Home.all
-      @quotes = Quote.where(kind: 'home').collect(&:promo_date).uniq
+    @home_quotes = Home.all
+    @quotes = Quote.where(kind: 'home').collect(&:promo_date).uniq
 
-      if @home_quotes.blank?
-        flash[:alert] = "No results found for Homes"
-        render action: 'index'
-      end
-    else
-      flash[:alert] = "Please login first."
-      redirect_to action: 'login'
+    if @home_quotes.blank?
+      flash[:alert] = "No results found for Homes"
+      render action: 'index'
     end
   end
 
   def autos
-    if Rails.cache.read("agent-#{session.id}")..present?
-      @agent = Agent.new
-      Rails.cache.write("quote_token-#{session.id}", params[:quote_token]) if params[:quote_token].present?
+    @agent = Agent.new
+    Rails.cache.write("quote_token-#{session.id}", params[:quote_token]) if params[:quote_token].present?
 
-      @auto_quotes = Auto.all
-      @quotes = Quote.where(kind: 'auto').collect(&:promo_date).uniq
+    @auto_quotes = Auto.all
+    @quotes = Quote.where(kind: 'auto').collect(&:promo_date).uniq
 
-      if @auto_quotes.blank?
-        flash[:alert] = "No results found for Autos"
-        render action: 'index'
-      end
-    else
-      flash[:alert] = "Please login first."
-      redirect_to action: 'login'
+    if @auto_quotes.blank?
+      flash[:alert] = "No results found for Autos"
+      render action: 'index'
     end
   end
 

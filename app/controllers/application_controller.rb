@@ -13,6 +13,13 @@ class ApplicationController < ActionController::Base
     end
   end
 
+  def check_agent_auth
+    if Rails.cache.read("agent-#{session.id}").blank?
+      flash[:alert] = "Please login first."
+      redirect_to agent_login_url
+    end
+  end
+
   private
   def twilio
     account_sid = 'AC980887bc91baffc2087016570b99db44'

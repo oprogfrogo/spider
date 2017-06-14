@@ -1,6 +1,7 @@
 class QuotesController < ApplicationController
 
   before_action :twilio, only: [:send_quote]
+  before_action :check_agent_auth, only: [:index, :homes, :autos]
 
   def index
     @auto_promos = Quote.where(kind: 'auto')
