@@ -1,7 +1,6 @@
-class CreateQuotes < ActiveRecord::Migration
+class CreateQuotesAuto < ActiveRecord::Migration
   def change
-    create_table :quotes do |t|
-      t.string :kind
+    create_table :quotes_autos do |t|
       t.date :promo_date
       t.string :category
       t.string :carrier

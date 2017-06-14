@@ -39,20 +39,20 @@
                         <td></td>
                         <td><%= home.id %></td>
                         <td><%= select_tag 'customer[][promo_date]', options_for_select(@quotes), {:include_blank => true} %>
-                            <td><%= home.status %></td>
-                            <td><%= home.user.profile.name %></td>
-                            <td><%= home.user.profile.phone_number %></td>
-                            <td><%= home.user.profile.email %></td>
-                            <td><%= home.user.profile.dl_number %></td>
-                            <td><%= home.user.profile.martial_status %></td>
-                            <td><%= home.street %></td>
-                            <td><%= home.street2 %></td>
-                            <td><%= home.city %></td>
-                            <td><%= home.state %></td>
-                            <td><%= home.postal_code %></td>
-                            <td><%= home.year_built %></td>
-                            <td><%= home.alarm_system %></td>
-                        </tr>
+                        <td><%= home.status %></td>
+                        <td><%= home.user.profile.name %></td>
+                        <td><%= home.user.profile.phone_number %></td>
+                        <td><%= home.user.profile.email %></td>
+                        <td><%= home.user.profile.dl_number %></td>
+                        <td><%= home.user.profile.martial_status %></td>
+                        <td><%= home.street %></td>
+                        <td><%= home.street2 %></td>
+                        <td><%= home.city %></td>
+                        <td><%= home.state %></td>
+                        <td><%= home.postal_code %></td>
+                        <td><%= home.year_built %></td>
+                        <td><%= home.alarm_system %></td>
+                    </tr>
                     <% } %>
                 </tbody>
             </table>
@@ -62,6 +62,7 @@
         <script>
             // Datatables
             var table = $('.datatable').DataTable({
+                "scrollX": true,
                 'columnDefs': [
                     {
                         'targets': 0,

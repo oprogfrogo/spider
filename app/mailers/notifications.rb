@@ -6,7 +6,7 @@ class Notifications < ApplicationMailer
     @user = user
     @homes = homes
 
-    mail(to: 'oprogfrogo@gmail.com', subject: 'A New Home Quote Request')
+    mail(to: 'oprogfrogo@gmail.com', subject: 'New Customer Home Quote Request')
   end
 
   def home_quote_approve(user, home, agent, quotes)
@@ -18,9 +18,9 @@ class Notifications < ApplicationMailer
     mail(to: @user.email, subject: 'Home Quote Approval!')
   end
 
-  def new_user(user, domain)
+  def new_user(user, request)
     @user = user
-    @domain = domain
+    @domain = Rails.env.development? ? "#{request.protocol}#{request.host}:#{request.port}" : "http://spiderpolicy.xyz"
 
     mail(to: @user.email, subject: 'Please confirm your email')
   end

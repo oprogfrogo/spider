@@ -24,9 +24,9 @@ class RegistrationsController < ApplicationController
   def resend_confirmation_email
     @user = User.find(Rails.cache.read("uid-#{session.id}"))
     if @user.present?
-      Notifications.new_user(@user, request.base_url).deliver_now
-      flash.now[:success] = "Please check your email to confirm your email address."
-      redirect_to client_login_path
+      Notifications.new_user(@user, request).deliver_now
+      flash[:success] = "Confirmation link resent. Please check your email."
+      redirect_to sessions_path
       return
     else
       flash.now[:alert] = "Oops! Something went wrong. Please register again."

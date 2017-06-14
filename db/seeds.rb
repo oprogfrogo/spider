@@ -18,9 +18,8 @@ agents = Agent.create([
   }
 ])
 
-quotes = Quote.create([
+QuotesAuto.create([
   {
-    kind: 'auto',
     promo_date: '2017-06-01',
     category: 'bronze',
     carrier: 'Tokio Marine USA',
@@ -36,7 +35,6 @@ quotes = Quote.create([
     total_premium: '$200 / Month'
   },
   {
-    kind: 'auto',
     promo_date: '2017-06-01',
     category: 'silver',
     carrier: 'Tokio Marine USA',
@@ -52,7 +50,6 @@ quotes = Quote.create([
     total_premium: '$400 / Month'
   },
   {
-    kind: 'auto',
     promo_date: '2017-06-01',
     category: 'gold',
     carrier: 'Tokio Marine USA',
@@ -66,5 +63,23 @@ quotes = Quote.create([
     rental_reimbursement: '$40 day for 30 days',
     roadside_coverage: 'Included',
     total_premium: '$600 / Month'
+  }
+])
+
+QuotesHome.create([
+  {
+    promo_date: '2017-06-01',
+    category: 'bronze',
+    carrier: 'Tokio Marine USA'
+  },
+  {
+    promo_date: '2017-06-01',
+    category: 'silver',
+    carrier: 'Tokio Marine USA'
+  },
+  {
+    promo_date: '2017-06-01',
+    category: 'gold',
+    carrier: 'Tokio Marine USA'
   }
 ])

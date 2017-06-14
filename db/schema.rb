@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170607235309) do
+ActiveRecord::Schema.define(version: 20170614062020) do
 
   create_table "agents", force: :cascade do |t|
     t.string   "login",       limit: 255
@@ -76,8 +76,7 @@ ActiveRecord::Schema.define(version: 20170607235309) do
 
   add_index "profiles", ["user_id"], name: "index_profiles_on_user_id", using: :btree
 
-  create_table "quotes", force: :cascade do |t|
-    t.string   "kind",                             limit: 255
+  create_table "quotes_autos", force: :cascade do |t|
     t.date     "promo_date"
     t.string   "category",                         limit: 255
     t.string   "carrier",                          limit: 255
@@ -93,6 +92,14 @@ ActiveRecord::Schema.define(version: 20170607235309) do
     t.string   "total_premium",                    limit: 255
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
+  end
+
+  create_table "quotes_homes", force: :cascade do |t|
+    t.string   "promo_date", limit: 255
+    t.string   "category",   limit: 255
+    t.string   "carrier",    limit: 255
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
   end
 
   create_table "registrations", force: :cascade do |t|

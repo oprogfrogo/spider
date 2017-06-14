@@ -77,8 +77,8 @@ Rails.application.routes.draw do
   get 'resend_confirmation_email' => 'registrations#resend_confirmation_email'
   get 'quotes_auto' => 'quotes#auto'
   get 'quotes_home' => 'quotes#home'
-  get 'edit_quotes_auto' => 'quotes#edit'
-  get 'edit_quotes_home' => 'quotes#home'
+  get 'edit_quotes_auto' => 'quotes#edit_auto'
+  get 'edit_quotes_home' => 'quotes#edit_home'
 
   post 'store_zip' => 'welcome#store_zip'
   post 'send_quote' => 'quotes#send_quote'

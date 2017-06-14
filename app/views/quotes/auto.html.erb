@@ -5,7 +5,6 @@
                 <tr>
                     <th>Action</th>
                     <th>ID</th>
-                    <th>Kind</th>
                     <th>Promo</th>
                     <th>Category</th>
                     <th>Carrier</th>
@@ -28,7 +27,6 @@
                 <tr>
                     <td><a href='/edit_quotes_auto?id=<%= quote.id %>' class='button'>Edit</a></td>
                     <td><%= quote.id %></td>
-                    <td><%= quote.kind %></td>
                     <td><%= quote.promo_date %></td>
                     <td><%= quote.category %></td>
                     <td><%= quote.carrier %></td>
@@ -42,8 +40,8 @@
                     <td><%= quote.rental_reimbursement %></td>
                     <td><%= quote.roadside_coverage %></td>
                     <td><%= quote.total_premium %></td>
-                    <td><%= quote.created_at %></td>
-                    <td><%= quote.updated_at %></td>
+                    <td><%= quote.created_at.strftime('%m/%d/%y %I:%M:%S %p') %></td>
+                    <td><%= quote.updated_at.strftime('%m/%d/%y %I:%M:%S %p') %></td>
                 </tr>
                 <% } %>
             </tbody>

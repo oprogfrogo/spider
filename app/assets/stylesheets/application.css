@@ -127,7 +127,6 @@ li {
 }
 
 .error_explanation {
-  width: 400px;
   border: 2px solid red;
   padding: 7px;
   padding-bottom: 12px;
