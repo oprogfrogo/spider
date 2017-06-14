@@ -35,7 +35,7 @@
                     <tr>
                         <td></td>
                         <td><%= auto.id %></td>
-                        <td><%= select_tag 'customer[][promo_date]', options_for_select(@quotes), {:include_blank => true} %>
+                        <td><%= select_tag 'customer[][promo_date]', options_for_select(@quotes, auto.promo_date), { :include_blank => true, style: 'width: 120px' } %>
                             <td><%= auto.status %></td>
                             <td><%= auto.user.profile.name %></td>
                             <td><%= auto.user.profile.phone_number %></td>
