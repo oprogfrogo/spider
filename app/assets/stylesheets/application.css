@@ -40,6 +40,18 @@
     border: 1px solid #ccc;
 }
 
+.bg-bronze {
+    background: #B87333;
+}
+
+.bg-silver {
+    background: #C0C0C0;
+}
+
+.bg-gold {
+    background: #FFD700;
+}
+
 *:focus {
     outline:none
 }
@@ -107,18 +119,6 @@ li {
     font-size: 20px;
     border-radius: 10px;
     padding: 20px 40px;
-}
-
-.quote_column_0 {
-    background: #ffc784;
-}
-
-.quote_column_1 {
-    background: #d3eeff;
-}
-
-.quote_column_2 {
-    background: #ffff3d;
 }
 
 .table-headers {

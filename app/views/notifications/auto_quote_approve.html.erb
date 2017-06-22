@@ -25,16 +25,16 @@
                         <% @quotes.each_with_index {|quote, index| %>
                             <% case index
                                 when 0
-                                color='#ffc784'
+                                color='#B87333'
                                 when 1
-                                color='#d3eeff'
+                                color='#C0C0C0'
                                 when 2
-                                color='#ffff3d'
+                                color='#FFD700'
                                 else
-                                color='#ffc784'
+                                color='#FFFFFF'
                                 end %>
 
-                            <td class="quote_column_<%= index %>" style="background: <%= color %>" ><%= quote[column] %></td>
+                            <td style="background: <%= color %>" ><%= quote[column] %></td>
                         <% } %>
                     <tr>
                 <% } %>

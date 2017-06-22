@@ -4,6 +4,17 @@ class AgentsController < ApplicationController
 
   before_action :check_agent_auth, only: [:homes, :autos]
 
+  def draw_quote_auto
+    @quotes_auto = QuotesAuto.new
+    @bronze      = QuotesAuto.find(1)
+    @silver      = QuotesAuto.find(2)
+    @gold        = QuotesAuto.find(3)
+
+    respond_to do |format|
+      format.html
+    end
+  end
+
   def homes
     @agent = Agent.new
     Rails.cache.write("quote_token-#{session.id}", params[:quote_token]) if params[:quote_token].present?
@@ -22,7 +33,6 @@ class AgentsController < ApplicationController
     Rails.cache.write("quote_token-#{session.id}", params[:quote_token]) if params[:quote_token].present?
 
     @auto_quotes = Auto.all
-    @quotes = QuotesAuto.all.collect(&:promo_date).uniq
 
     if @auto_quotes.blank?
       flash[:alert] = "No results found for Autos"

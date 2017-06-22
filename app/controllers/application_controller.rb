@@ -9,7 +9,7 @@ class ApplicationController < ActionController::Base
     logger.info("Session ID: #{session.id}")
     if Rails.cache.read("uid-#{session.id}").present?
       user_email = User.where(id: Rails.cache.read("uid-#{session.id}")).try(:first).try(:email)
-      @signed_in = "Signed in as #{user_email}" if user_email.present?
+      @signed_in = "Welcome #{user_email}" if user_email.present?
     end
   end
 

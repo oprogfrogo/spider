@@ -1,7 +1,7 @@
 class CreateQuotesAuto < ActiveRecord::Migration
   def change
     create_table :quotes_autos do |t|
-      t.date :promo_date
+      t.references :auto, index: true, foreign_key: true
       t.string :category
       t.string :carrier
       t.string :bodily_injury_liability

@@ -38,7 +38,7 @@
                     <tr>
                         <td></td>
                         <td><%= home.id %></td>
-                        <td><%= select_tag 'customer[][promo_date]', options_for_select(@quotes, home.promo_date), { :include_blank => true, style: 'width: 120px' } %>
+                        <td><%= select_tag 'customer[][promo_date]', options_for_select(@quotes, home.promo_date), { :include_blank => "Incomplete", style: 'width: 120px' } %>
                         <td><%= home.status %></td>
                         <td><%= home.user.profile.name %></td>
                         <td><%= home.user.profile.phone_number %></td>

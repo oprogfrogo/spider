@@ -1,0 +1,87 @@
+<div class="row">
+    <%= form_tag controller: 'quotes_auto', action: 'send_quote_auto' do %>
+    <%= hidden_field_tag 'bronze[auto_id]', params[:id] %>
+    <%= hidden_field_tag 'silver[auto_id]', params[:id] %>
+    <%= hidden_field_tag 'gold[auto_id]', params[:id] %>
+    <div class="columns">
+        <table>
+            <tr>
+                <th>Coverage</th>
+                <th class="bg-bronze">Bronze</th>
+                <th class="bg-silver">Silver</th>
+                <th class="bg-gold">Gold</th>
+            </tr>
+            <tr>
+                <td>Carrier</td>
+                <td class="bg-bronze"><%= text_field_tag 'bronze[carrier]', @bronze.carrier %></td>
+                <td class="bg-silver"><%= text_field_tag 'silver[carrier]', @silver.carrier %></td>
+                <td class="bg-gold"><%= text_field_tag 'gold[carrier]', @gold.carrier %></td>
+            </tr>
+            <tr>
+                <td>Bodily Injury Liability</td>
+                <td class="bg-bronze"><%= text_field_tag 'bronze[bodily_injury_liability]', @bronze.bodily_injury_liability %></td>
+                <td class="bg-silver"><%= text_field_tag 'silver[bodily_injury_liability]', @silver.bodily_injury_liability %></td>
+                <td class="bg-gold"><%= text_field_tag 'gold[bodily_injury_liability]', @gold.bodily_injury_liability %></td>
+            </tr>
+            <tr>
+                <td>Property Damage Liability</td>
+                <td class="bg-bronze"><%= text_field_tag 'bronze[property_damage_liability]', @bronze.property_damage_liability %></td>
+                <td class="bg-silver"><%= text_field_tag 'silver[property_damage_liability]', @silver.property_damage_liability %></td>
+                <td class="bg-gold"><%= text_field_tag 'gold[property_damage_liability]', @gold.property_damage_liability %></td>
+            </tr>
+            <tr>
+                <td>Medical Payments</td>
+                <td class="bg-bronze"><%= text_field_tag 'bronze[medical_payments]', @bronze.medical_payments %></td>
+                <td class="bg-silver"><%= text_field_tag 'silver[medical_payments]', @silver.medical_payments %></td>
+                <td class="bg-gold"><%= text_field_tag 'gold[medical_payments]', @gold.medical_payments %></td>
+            </tr>
+            <tr>
+                <td>Uninsured Motorist Bodily Injury</td>
+                <td class="bg-bronze"><%= text_field_tag 'bronze[uninsured_motorist_bodily_injury]', @bronze.uninsured_motorist_bodily_injury %></td>
+                <td class="bg-silver"><%= text_field_tag 'silver[uninsured_motorist_bodily_injury]', @silver.uninsured_motorist_bodily_injury %></td>
+                <td class="bg-gold"><%= text_field_tag 'gold[uninsured_motorist_bodily_injury]', @gold.uninsured_motorist_bodily_injury %></td>
+            </tr>
+            <tr>
+                <td>Comprehensive</td>
+                <td class="bg-bronze"><%= text_field_tag 'bronze[comprehensive]', @bronze.comprehensive %></td>
+                <td class="bg-silver"><%= text_field_tag 'silver[comprehensive]', @silver.comprehensive %></td>
+                <td class="bg-gold"><%= text_field_tag 'gold[comprehensive]', @gold.comprehensive %></td>
+            </tr>
+            <tr>
+                <td>Collision</td>
+                <td class="bg-bronze"><%= text_field_tag 'bronze[collision]', @bronze.collision %></td>
+                <td class="bg-silver"><%= text_field_tag 'silver[collision]', @silver.collision %></td>
+                <td class="bg-gold"><%= text_field_tag 'gold[collision]', @gold.collision %></td>
+            </tr>
+            <tr>
+                <td>Waiver Of Collision Deductible</td>
+                <td class="bg-bronze"><%= text_field_tag 'bronze[waiver_of_collision_deductible]', @bronze.waiver_of_collision_deductible %></td>
+                <td class="bg-silver"><%= text_field_tag 'silver[waiver_of_collision_deductible]', @silver.waiver_of_collision_deductible %></td>
+                <td class="bg-gold"><%= text_field_tag 'gold[waiver_of_collision_deductible]', @gold.waiver_of_collision_deductible %></td>
+            </tr>
+
+            <tr>
+                <td>Rental Reimbursement</td>
+                <td class="bg-bronze"><%= text_field_tag 'bronze[rental_reimbursement]', @bronze.rental_reimbursement %></td>
+                <td class="bg-silver"><%= text_field_tag 'silver[rental_reimbursement]', @silver.rental_reimbursement %></td>
+                <td class="bg-gold"><%= text_field_tag 'gold[rental_reimbursement]', @gold.rental_reimbursement %></td>
+            </tr>
+            <tr>
+                <td>Roadside Coverage</td>
+                <td class="bg-bronze"><%= text_field_tag 'bronze[roadside_coverage]', @bronze.roadside_coverage %></td>
+                <td class="bg-silver"><%= text_field_tag 'silver[roadside_coverage]', @silver.roadside_coverage %></td>
+                <td class="bg-gold"><%= text_field_tag 'gold[roadside_coverage]', @gold.roadside_coverage %></td>
+            </tr>
+            <tr>
+                <td>Total Premium</td>
+                <td class="bg-bronze"><%= text_field_tag 'bronze[total_premium]', @bronze.total_premium %></td>
+                <td class="bg-silver"><%= text_field_tag 'silver[total_premium]', @silver.total_premium %></td>
+                <td class="bg-gold"><%= text_field_tag 'gold[total_premium]', @bronze.total_premium %></td>
+            </tr>
+        </table>
+    <div>
+    <div>
+        <%= submit_tag 'Send Quote', class: 'button float-right' %>
+    </div>
+    <% end %>
+</div>

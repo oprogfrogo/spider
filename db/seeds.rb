@@ -1,11 +1,3 @@
-# This file should contain all the record creation needed to seed the database with its default values.
-# The data can then be loaded with the rake db:seed (or created alongside the db with db:setup).
-#
-# Examples:
-#
-#   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
-#   Mayor.create(name: 'Emanuel', city: cities.first)
-
 Agent.create([
   {
     login: 'simon',
@@ -18,9 +10,44 @@ Agent.create([
   }
 ])
 
+User.create([
+  {
+    email: 'oprogfrogo@gmail.com',
+    password: 'sdfsdf',
+    token: 'Simon Lee',
+    confirmed: 'Y'
+  }
+])
+
+Auto.create([
+  {
+    user_id: 1,
+    vin: '123123',
+    year: '2017',
+    make: 'Toyota',
+    model: 'Camry',
+    status: 'pending',
+    token: 'd5c09355-0d2f-44e2-be00-06f3ce9d8385'
+  }
+])
+
+Home.create([
+  {
+    user_id: 1,
+    street: '111 Test St.',
+    street2: '',
+    city: 'Los Angeles',
+    state: 'CA',
+    postal_code: '90066',
+    year_built: '2016',
+    alarm_system: 'Y',
+    status: 'pending'
+  }
+])
+
 QuotesAuto.create([
   {
-    promo_date: '2017-06-01',
+    auto_id: 1,
     category: 'bronze',
     carrier: 'Tokio Marine USA',
     bodily_injury_liability: '$15,000 / PP   $30,000 / OCC',
@@ -35,7 +62,7 @@ QuotesAuto.create([
     total_premium: '$200 / Month'
   },
   {
-    promo_date: '2017-06-01',
+    auto_id: 1,
     category: 'silver',
     carrier: 'Tokio Marine USA',
     bodily_injury_liability: '$50,000 / PP  $100,000 / OCC',
@@ -50,7 +77,7 @@ QuotesAuto.create([
     total_premium: '$400 / Month'
   },
   {
-    promo_date: '2017-06-01',
+    auto_id: 1,
     category: 'gold',
     carrier: 'Tokio Marine USA',
     bodily_injury_liability: '$100,000 / PP  $300,000 /OCC',
@@ -69,17 +96,27 @@ QuotesAuto.create([
 QuotesHome.create([
   {
     promo_date: '2017-06-01',
-    category: 'bronze',
-    carrier: 'Tokio Marine USA'
-  },
-  {
-    promo_date: '2017-06-01',
-    category: 'silver',
-    carrier: 'Tokio Marine USA'
-  },
-  {
-    promo_date: '2017-06-01',
-    category: 'gold',
-    carrier: 'Tokio Marine USA'
+    dwelling: '',
+    personal_property: '',
+    loss_of_use: '',
+    liability: '',
+    medical_payments: '',
+    deductible: '',
+    premises_alarm_fire_system: '',
+    contents_other_residents: '',
+    unscheduled_personal_property: '',
+    jewels_watches_furs: '',
+    money: '',
+    securities: '',
+    silver_gold_pewter: '',
+    firearms: '',
+    electronic_app_vehicles: '',
+    electronic_app_business: '',
+    workers_compensation: '',
+    inflation_guard: '',
+    ordinance_or_law_converage: '',
+    replace_cost_contents: '',
+    fungi_mold_bacteria: '',
+    total_premium: '',
   }
 ])
