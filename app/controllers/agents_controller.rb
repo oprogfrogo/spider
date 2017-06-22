@@ -15,6 +15,13 @@ class AgentsController < ApplicationController
     end
   end
 
+  def resend_quote_auto
+    @auto = Auto.find(params[:id])
+
+    flash[:success] = "Quote has been resent"
+    redirect_to controller: 'agents', action: 'index'
+  end
+
   def homes
     @agent = Agent.new
     Rails.cache.write("quote_token-#{session.id}", params[:quote_token]) if params[:quote_token].present?
@@ -32,7 +39,7 @@ class AgentsController < ApplicationController
     @agent = Agent.new
     Rails.cache.write("quote_token-#{session.id}", params[:quote_token]) if params[:quote_token].present?
 
-    @auto_quotes = Auto.all
+    @auto_quotes = Auto.where.not(id: 1)
 
     if @auto_quotes.blank?
       flash[:alert] = "No results found for Autos"

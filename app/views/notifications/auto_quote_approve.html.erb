@@ -19,7 +19,7 @@
                 </tr>
             </thead>
             <tbody>
-                <% (@quotes.column_names - ['id', 'kind', 'promo_date', 'category', 'created_at', 'updated_at']).each {|column| %>
+                <% (@quotes.column_names - ['id', 'auto_id', 'category', 'created_at', 'updated_at']).each {|column| %>
                     <tr>
                         <td><%= column.titleize %></td>
                         <% @quotes.each_with_index {|quote, index| %>

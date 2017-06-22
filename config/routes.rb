@@ -86,6 +86,7 @@ Rails.application.routes.draw do
   get 'edit_quotes_home' => 'quotes#edit_home'
 
   get 'draw_quote_auto' => 'agents#draw_quote_auto'
+  get 'resend_quote_auto' => 'agents#resend_quote_auto'
 
   post 'store_zip' => 'welcome#store_zip'
   post 'home_insurance_quote' => 'welcome#home_insurance_quote'

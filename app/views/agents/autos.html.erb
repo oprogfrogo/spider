@@ -32,9 +32,21 @@
                 <tbody>
                     <% @auto_quotes.each {|auto| %>
                     <tr>
-                        <td><%= link_to 'Create Quote', { action: "draw_quote_auto", id: auto.id }, class: 'button' %></td>
+                        <td>
+                            <% if auto.status == 'pending' %>
+                                <%= link_to 'Create Quote', { action: "draw_quote_auto", id: auto.id }, class: 'button' %>
+                            <% else %>
+                                Completed
+                            <% end %>
+                        </td>
                         <td><%= auto.id %></td>
-                        <td><%= auto.status %></td>
+                        <td>
+                            <% if auto.status == 'completed' %>
+                                <%= link_to 'Resend', resend_quote_auto_path(id: auto.id), class: 'button' %>
+                            <% else %>
+                                <%= auto.status %>
+                            <% end %>
+                        </td>
                         <td><%= auto.user.profile.name %></td>
                         <td><%= auto.user.profile.phone_number %></td>
                         <td><%= auto.user.profile.email %></td>

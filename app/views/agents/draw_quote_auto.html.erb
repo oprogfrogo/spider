@@ -1,8 +1,6 @@
 <div class="row">
     <%= form_tag controller: 'quotes_auto', action: 'send_quote_auto' do %>
-    <%= hidden_field_tag 'bronze[auto_id]', params[:id] %>
-    <%= hidden_field_tag 'silver[auto_id]', params[:id] %>
-    <%= hidden_field_tag 'gold[auto_id]', params[:id] %>
+    <%= hidden_field_tag 'auto_id', params[:id] %>
     <div class="columns">
         <table>
             <tr>
