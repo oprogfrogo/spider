@@ -35,30 +35,19 @@ class QuotesAutoController < ApplicationController
       return
     end
 
-        # autos.each {|auto|
-        # @client.messages.create(
-        #   from: '+18582640421',
-        #   to: home.user.phone_number,
-        #   body: "
-        #     Hello,
-        #
-        #     Your home insurance quote has been sent to your email address at #{home.user.email}
-        #
-        #     I am here to assist you with any questions you might have about your quotes. Call me at 888-888-8888 if you have any questions.
-        #   ",
-        #   media_url: 'https://images.asia.finance/contents/images/20161107124431/insuranceagentWP.jpg'
-        # )
-
-    #     quotes = QuotesAuto.where(promo_date: params[:customer].select{|s| s['id'] == auto['id'].to_s}.first['promo_date'])
+    # autos.each {|auto|
+    # @client.messages.create(
+    #   from: '+18582640421',
+    #   to: home.user.phone_number,
+    #   body: "
+    #     Hello,
     #
-    #     Notifications.auto_quote_approve(auto.user, auto, agent, quotes).deliver_now
-    #   }
-    # else
-    #   flash[:alert] = "You must select a Promo for each quote"
-    #   redirect_to controller: 'agents', action: 'index'
-    #   return
-    # end
-
+    #     Your home insurance quote has been sent to your email address at #{home.user.email}
+    #
+    #     I am here to assist you with any questions you might have about your quotes. Call me at 888-888-8888 if you have any questions.
+    #   ",
+    #   media_url: 'https://images.asia.finance/contents/images/20161107124431/insuranceagentWP.jpg'
+    # )
 
     agent = Agent.find_by_login(Rails.cache.read("agent-#{session.id}"))
     quotes = QuotesAuto.where(auto_id: params[:auto_id])

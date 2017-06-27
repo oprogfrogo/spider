@@ -7,7 +7,6 @@ class CreateAutos < ActiveRecord::Migration
       t.string :make
       t.string :model
       t.string :status
-      t.string :token
 
       t.timestamps null: false
     end

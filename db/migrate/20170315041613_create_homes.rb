@@ -10,7 +10,6 @@ class CreateHomes < ActiveRecord::Migration
       t.string :year_built
       t.boolean :alarm_system
       t.string :status
-      t.string :token
 
       t.timestamps null: false
     end

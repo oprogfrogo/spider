@@ -15,9 +15,8 @@
             <table class="datatable display responsive no-wrap">
                 <thead>
                     <tr>
-                        <th><input type="checkbox" name="select_all" value="1" id="example-select-all"></th>
+                        <th>Action</th>
                         <th>ID</th>
-                        <th>Promo</th>
                         <th>Status</th>
                         <th>Name</th>
                         <th>Phone Number</th>
@@ -36,10 +35,21 @@
                 <tbody>
                     <% @home_quotes.each {|home| %>
                     <tr>
-                        <td></td>
+                        <td>
+                            <% if home.status == 'pending' %>
+                                <%= link_to 'Create Quote', { action: "draw_quote_home", id: home.id }, class: 'button' %>
+                            <% else %>
+                                Completed
+                            <% end %>
+                        </td>
                         <td><%= home.id %></td>
-                        <td><%= select_tag 'customer[][promo_date]', options_for_select(@quotes, home.promo_date), { :include_blank => "Incomplete", style: 'width: 120px' } %>
-                        <td><%= home.status %></td>
+                        <td>
+                            <% if home.status == 'completed' %>
+                                <%= link_to 'Resend', resend_quote_home_path(id: home.id), class: 'button' %>
+                            <% else %>
+                                <%= home.status %>
+                            <% end %>
+                        </td>
                         <td><%= home.user.profile.name %></td>
                         <td><%= home.user.profile.phone_number %></td>
                         <td><%= home.user.profile.email %></td>
@@ -56,66 +66,13 @@
                     <% } %>
                 </tbody>
             </table>
-            <button class='button'>Submit</button>
         </div>
-        <% end %>
         <script>
             // Datatables
-            var table = $('.datatable').DataTable({
-                "scrollX": true,
-                'columnDefs': [
-                    {
-                        'targets': 0,
-                        'searchable': false,
-                        'orderable': false,
-                        'className': 'dt-body-center',
-                        'render': function (data, type, full, meta) {
-                            return '<input type="checkbox" name="customer[][id]" value="' + full[1] + '">';
-                        }
-                    }
-                ],
-                'order': [
-                    [1, 'asc']
-                ]
-            });
-
-            // Handle click on "Select all" control
-            $('#example-select-all').on('click', function () {
-                // Get all rows with search applied
-                var rows = table.rows({'search': 'applied'}).nodes();
-                // Check/uncheck checkboxes for all rows in the table
-                $('input[type="checkbox"]', rows).prop('checked', this.checked);
-            });
-
-            // Handle click on checkbox to set state of "Select all" control
-            $('.datatable tbody').on('change', 'input[type="checkbox"]', function () {
-                // If checkbox is not checked
-                if (!this.checked) {
-                    var el = $('#example-select-all').get(0);
-                    // If "Select all" control is checked and has 'indeterminate' property
-                    if (el && el.checked && ('indeterminate' in el)) {
-                        // Set visual state of "Select all" control as 'indeterminate'
-                        el.indeterminate = true;
-                    }
-                }
-            });
-
-            // Handle form submission event
-            $('#frm-example').on('submit', function (e) {
-                var form = this;
-
-                // Iterate over all checkboxes in the table
-                table.$('input[type="checkbox"]').each(function () {
-                    // If checkbox doesn't exist in DOMf
-                    if (!$.contains(document, this)) {
-                        // If checkbox is checked
-                        if (this.checked) {
-                            // Create a hidden element
-                            $(form).append($('<input>').attr('type', 'hidden').attr('name', this.name).val(this.value));
-                        }
-                    }
-                });
+            $('.datatable').DataTable({
+                "scrollX": true
             });
         </script>
+        <% end %>
     <% end %>
 <% end %>

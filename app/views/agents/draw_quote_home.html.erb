@@ -1,0 +1,250 @@
+<div class="row">
+    <%= form_tag controller: 'quotes_home', action: 'send_quote_home' do %>
+        <%= hidden_field_tag 'home_id', params[:id] %>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Dwelling</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[dwelling_limit]", @quotes_home_default.dwelling_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[dwelling_premium]", @quotes_home_default.dwelling_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Personal Property</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[personal_property_limit]", @quotes_home_default.personal_property_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[personal_property_premium]", @quotes_home_default.personal_property_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Loss Of Use</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[loss_of_use_limit]", @quotes_home_default.loss_of_use_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[loss_of_use_premium]", @quotes_home_default.loss_of_use_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Liability</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[liability_limit]", @quotes_home_default.liability_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[liability_premium]", @quotes_home_default.liability_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Medical Payments</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[medical_payments_limit]", @quotes_home_default.medical_payments_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[medical_payments_premium]", @quotes_home_default.medical_payments_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Deductible</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[deductible_limit]", @quotes_home_default.deductible_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[deductible_premium]", @quotes_home_default.deductible_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Premises Alarm Fire System</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[premises_alarm_fire_system_limit]", @quotes_home_default.premises_alarm_fire_system_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[premises_alarm_fire_system_premium]", @quotes_home_default.premises_alarm_fire_system_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Contents Other Residents</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[contents_other_residents_limit]", @quotes_home_default.contents_other_residents_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[contents_other_residents_premium]", @quotes_home_default.contents_other_residents_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Unscheduled Personal Property</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[unscheduled_personal_property_limit]", @quotes_home_default.unscheduled_personal_property_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[unscheduled_personal_property_premium]", @quotes_home_default.unscheduled_personal_property_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Jewels Watches Furs</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[jewels_watches_furs_limit]", @quotes_home_default.jewels_watches_furs_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[jewels_watches_furs_premium]", @quotes_home_default.jewels_watches_furs_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Money</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[money_limit]", @quotes_home_default.money_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[money_premium]", @quotes_home_default.money_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Securities</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[securities_limit]", @quotes_home_default.securities_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[securities_premium]", @quotes_home_default.securities_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Silver Gold Pewter</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[silver_gold_pewter_limit]", @quotes_home_default.silver_gold_pewter_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[silver_gold_pewter_premium]", @quotes_home_default.silver_gold_pewter_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Firearms</label>
+                <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[firearms_limit]", @quotes_home_default.firearms_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[firearms_premium]", @quotes_home_default.firearms_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Electronic App Vehicles</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[electronic_app_vehicles_limit]", @quotes_home_default.electronic_app_vehicles_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[electronic_app_vehicles_premium]", @quotes_home_default.electronic_app_vehicles_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Electronic App Business</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[electronic_app_business_limit]", @quotes_home_default.electronic_app_business_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[electronic_app_business_premium]", @quotes_home_default.electronic_app_business_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Workers Compensation</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[workers_compensation_limit]", @quotes_home_default.workers_compensation_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[workers_compensation_premium]", @quotes_home_default.workers_compensation_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Inflation Guard</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[inflation_guard_limit]", @quotes_home_default.inflation_guard_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[inflation_guard_premium]", @quotes_home_default.inflation_guard_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Ordinance Or Law Converage</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[ordinance_or_law_converage_limit]", @quotes_home_default.ordinance_or_law_converage_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[ordinance_or_law_converage_premium]", @quotes_home_default.ordinance_or_law_converage_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Replace Cost Contents</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[replace_cost_contents_limit]", @quotes_home_default.replace_cost_contents_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[replace_cost_contents_premium]", @quotes_home_default.replace_cost_contents_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Fungi Mold Bacteria</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[fungi_mold_bacteria_limit]", @quotes_home_default.fungi_mold_bacteria_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[fungi_mold_bacteria_premium]", @quotes_home_default.fungi_mold_bacteria_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Total Premium</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[total_premium_limit]", @quotes_home_default.total_premium_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= text_field_tag "send_home[total_premium_premium]", @quotes_home_default.total_premium_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <%= submit_tag 'Send Quote', class: 'button float-right' %>
+        </div>
+    <% end %>
+</div>

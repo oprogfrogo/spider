@@ -15,8 +15,31 @@ class AgentsController < ApplicationController
     end
   end
 
+  def draw_quote_home
+    @quotes_home_default = QuotesHome.find(1)
+
+    respond_to do |format|
+      format.html
+    end
+  end
+
   def resend_quote_auto
     @auto = Auto.find(params[:id])
+    agent = Agent.find_by_login(Rails.cache.read("agent-#{session.id}"))
+    quotes = QuotesAuto.where(auto_id: @auto.id)
+
+    Notifications.auto_quote_approve(@auto.user, @auto, agent, quotes).deliver_now
+
+    flash[:success] = "Quote has been resent"
+    redirect_to controller: 'agents', action: 'index'
+  end
+
+  def resend_quote_home
+    @home = Home.find(params[:id])
+    agent = Agent.find_by_login(Rails.cache.read("agent-#{session.id}"))
+    quotes = QuotesHome.where(home_id: @home.id).try(:first)
+
+    Notifications.home_quote_approve(@home.user, @home, agent, quotes).deliver_now
 
     flash[:success] = "Quote has been resent"
     redirect_to controller: 'agents', action: 'index'
@@ -27,7 +50,6 @@ class AgentsController < ApplicationController
     Rails.cache.write("quote_token-#{session.id}", params[:quote_token]) if params[:quote_token].present?
 
     @home_quotes = Home.all
-    @quotes = QuotesHome.all.collect(&:promo_date).uniq
 
     if @home_quotes.blank?
       flash[:alert] = "No results found for Homes"

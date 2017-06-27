@@ -17,7 +17,6 @@ class HomesController < ApplicationController
         @home.user_id = @user.id
         if @home.valid?
           @home.status = 'pending'
-          @home.token = SecureRandom.uuid
           @home.save
           flash[:success] = "Thank you, we have received your quote request. An agent will contact you shortly regarding your new quote."
         end
@@ -30,7 +29,6 @@ class HomesController < ApplicationController
           @home.user_id = @user.present? ? @user.id : User.where(email: params[:user][:email]).try(:first).id
           if @home.valid?
             @home.status = 'pending'
-            @home.token = SecureRandom.uuid
             @home.save
             flash[:success] = "Thank you, we have received your quote request. An agent will contact you shortly regarding your new quote."
           end

@@ -4,58 +4,51 @@ class QuotesHomeController < ApplicationController
   before_action :check_agent_auth, only: [:index, :homes, :autos]
 
   def send_quote_home
-    promo_dates_passed = true
+    begin
+      @quotes_home = QuotesHome.new(params[:send_home])
+      @quotes_home.home_id = params[:home_id]
 
-    params['customer'].each{|x|
-      x.delete_if { |key, value| value.blank? }
-      next if x.blank?
-      promo_dates_passed = false if x['promo_date'].blank?
-    }
+      if @quotes_home.valid?
+        @home = Home.find(params[:home_id])
+        @home.status = 'completed'
+        @home.save
 
-    if promo_dates_passed
-      quotes = params['customer'].reject { |c| c.empty? }
-      homes = Home.where(id: quotes.map{|x| x['id']})
+        @quotes_home.save
+      else
+        error_output = ""
+        @quotes_home.errors.full_messages.each {|error|
+          error_output += "#{error}<br/>"
+        }
 
-      homes.each {|home|
-        home.promo_date = quotes.select{|s| s['id'] == home.id.to_s}.first['promo_date']
-        home.save
-      }
-
-      agent = Agent.find_by_login(Rails.cache.read("agent-#{session.id}"))
-
-      if agent.blank?
-        flash[:alert] = "Please login as an agent before performing agent tasks"
-        redirect_to controller: 'agents', action: 'login'
+        flash[:alert] = error_output.html_safe
+        redirect_to draw_quote_home_path(id: params[:home_id])
         return
       end
 
-      logger.info("#{homes.count} found. Sending SMS.")
+      # homes.each {|home|
+      # @client.messages.create(
+      #   from: '+18582640421',
+      #   to: home.user.phone_number,
+      #   body: "
+      #     Hello,
+      #
+      #     Your home insurance quote has been sent to your email address at #{home.user.email}
+      #
+      #     I am here to assist you with any questions you might have about your quotes. Call me at 888-888-8888 if you have any questions.
+      #   ",
+      #   media_url: 'https://images.asia.finance/contents/images/20161107124431/insuranceagentWP.jpg'
+      # )
 
-      homes.each {|home|
-        # @client.messages.create(
-        #   from: '+18582640421',
-        #   to: home.user.phone_number,
-        #   body: "
-        #     Hello,
-        #
-        #     Your home insurance quote has been sent to your email address at #{home.user.email}
-        #
-        #     I am here to assist you with any questions you might have about your quotes. Call me at 888-888-8888 if you have any questions.
-        #   ",
-        #   media_url: 'https://images.asia.finance/contents/images/20161107124431/insuranceagentWP.jpg'
-        # )
+      agent = Agent.find_by_login(Rails.cache.read("agent-#{session.id}"))
+      quotes = QuotesHome.where(home_id: params[:home_id]).try(:first)
 
-        quotes = QuotesHome.where(promo_date: params[:customer].select{|s| s['id'] == home['id'].to_s}.first['promo_date'])
-
-        Notifications.home_quote_approve(home.user, home, agent, quotes).deliver_now
-      }
-    else
-      flash[:alert] = "You must select a Promo for each quote"
-      redirect_to controller: 'agents', action: 'index'
-      return
+      Notifications.home_quote_approve(@home.user, @home, agent, quotes).deliver_now
+    rescue => e
+      logger.error("Exception: #{e} / #{e.backtrace.join("\n")}")
+      flash[:alert] = "Unable to send a quote. Contact administrator"
     end
-
     respond_to do |format|
+      flash[:success] = "Quote sent successfully to #{@home.user.email}"
       format.html { redirect_to controller: 'agents', action: 'index' }
     end
   end

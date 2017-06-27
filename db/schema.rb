@@ -32,7 +32,6 @@ ActiveRecord::Schema.define(version: 20170614062020) do
     t.string   "make",       limit: 255
     t.string   "model",      limit: 255
     t.string   "status",     limit: 255
-    t.string   "token",      limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
@@ -49,7 +48,6 @@ ActiveRecord::Schema.define(version: 20170614062020) do
     t.string   "year_built",   limit: 255
     t.boolean  "alarm_system"
     t.string   "status",       limit: 255
-    t.string   "token",        limit: 255
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
   end
@@ -96,31 +94,53 @@ ActiveRecord::Schema.define(version: 20170614062020) do
   add_index "quotes_autos", ["auto_id"], name: "index_quotes_autos_on_auto_id", using: :btree
 
   create_table "quotes_homes", force: :cascade do |t|
-    t.integer  "home_id",                       limit: 4
-    t.string   "dwelling",                      limit: 255
-    t.string   "personal_property",             limit: 255
-    t.string   "loss_of_use",                   limit: 255
-    t.string   "liability",                     limit: 255
-    t.string   "medical_payments",              limit: 255
-    t.string   "deductible",                    limit: 255
-    t.string   "premises_alarm_fire_system",    limit: 255
-    t.string   "contents_other_residents",      limit: 255
-    t.string   "unscheduled_personal_property", limit: 255
-    t.string   "jewels_watches_furs",           limit: 255
-    t.string   "money",                         limit: 255
-    t.string   "securities",                    limit: 255
-    t.string   "silver_gold_pewter",            limit: 255
-    t.string   "firearms",                      limit: 255
-    t.string   "electronic_app_vehicles",       limit: 255
-    t.string   "electronic_app_business",       limit: 255
-    t.string   "workers_compensation",          limit: 255
-    t.string   "inflation_guard",               limit: 255
-    t.string   "ordinance_or_law_converage",    limit: 255
-    t.string   "replace_cost_contents",         limit: 255
-    t.string   "fungi_mold_bacteria",           limit: 255
-    t.string   "total_premium",                 limit: 255
-    t.datetime "created_at",                                null: false
-    t.datetime "updated_at",                                null: false
+    t.integer  "home_id",                               limit: 4
+    t.string   "dwelling_limit",                        limit: 255
+    t.string   "dwelling_premium",                      limit: 255
+    t.string   "personal_property_limit",               limit: 255
+    t.string   "personal_property_premium",             limit: 255
+    t.string   "loss_of_use_limit",                     limit: 255
+    t.string   "loss_of_use_premium",                   limit: 255
+    t.string   "liability_limit",                       limit: 255
+    t.string   "liability_premium",                     limit: 255
+    t.string   "medical_payments_limit",                limit: 255
+    t.string   "medical_payments_premium",              limit: 255
+    t.string   "deductible_limit",                      limit: 255
+    t.string   "deductible_premium",                    limit: 255
+    t.string   "premises_alarm_fire_system_limit",      limit: 255
+    t.string   "premises_alarm_fire_system_premium",    limit: 255
+    t.string   "contents_other_residents_limit",        limit: 255
+    t.string   "contents_other_residents_premium",      limit: 255
+    t.string   "unscheduled_personal_property_limit",   limit: 255
+    t.string   "unscheduled_personal_property_premium", limit: 255
+    t.string   "jewels_watches_furs_limit",             limit: 255
+    t.string   "jewels_watches_furs_premium",           limit: 255
+    t.string   "money_limit",                           limit: 255
+    t.string   "money_premium",                         limit: 255
+    t.string   "securities_limit",                      limit: 255
+    t.string   "securities_premium",                    limit: 255
+    t.string   "silver_gold_pewter_limit",              limit: 255
+    t.string   "silver_gold_pewter_premium",            limit: 255
+    t.string   "firearms_limit",                        limit: 255
+    t.string   "firearms_premium",                      limit: 255
+    t.string   "electronic_app_vehicles_limit",         limit: 255
+    t.string   "electronic_app_vehicles_premium",       limit: 255
+    t.string   "electronic_app_business_limit",         limit: 255
+    t.string   "electronic_app_business_premium",       limit: 255
+    t.string   "workers_compensation_limit",            limit: 255
+    t.string   "workers_compensation_premium",          limit: 255
+    t.string   "inflation_guard_limit",                 limit: 255
+    t.string   "inflation_guard_premium",               limit: 255
+    t.string   "ordinance_or_law_converage_limit",      limit: 255
+    t.string   "ordinance_or_law_converage_premium",    limit: 255
+    t.string   "replace_cost_contents_limit",           limit: 255
+    t.string   "replace_cost_contents_premium",         limit: 255
+    t.string   "fungi_mold_bacteria_limit",             limit: 255
+    t.string   "fungi_mold_bacteria_premium",           limit: 255
+    t.string   "total_premium_limit",                   limit: 255
+    t.string   "total_premium_premium",                 limit: 255
+    t.datetime "created_at",                                        null: false
+    t.datetime "updated_at",                                        null: false
   end
 
   add_index "quotes_homes", ["home_id"], name: "index_quotes_homes_on_home_id", using: :btree
