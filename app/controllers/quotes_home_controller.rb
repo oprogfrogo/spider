@@ -53,6 +53,20 @@ class QuotesHomeController < ApplicationController
     end
   end
 
+  def edit
+    @quotes_home = QuotesHome.find(1)
+  end
 
+  def update
+    @quote = QuotesHome.find(1)
+    @quote.attributes = params[:quotes_home]
+    if @quote.save
+      flash[:success] = "Successfully updated"
+    else
+      flash[:alert] = "Update failed"
+    end
+
+    redirect_to edit_quotes_home_path(1)
+  end
 
 end

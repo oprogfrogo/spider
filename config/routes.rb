@@ -20,6 +20,8 @@ Rails.application.routes.draw do
   resources :sessions
   resources :registrations
   resources :quotes
+  resources :quotes_home
+  resources :quotes_auto
 
   # Example resource route with options:
   #   resources :products do
@@ -82,8 +84,11 @@ Rails.application.routes.draw do
 
   get 'quotes_auto' => 'quotes#auto'
   get 'quotes_home' => 'quotes#home'
-  get 'edit_quotes_auto' => 'quotes#edit_auto'
-  get 'edit_quotes_home' => 'quotes#edit_home'
+  get 'edit_auto' => 'quotes#edit_auto'
+  get 'edit_home' => 'quotes#edit_home'
+
+  get 'edit_quotes_auto' => 'quotes_auto#edit'
+  get 'edit_quotes_home' => 'quotes_home#edit'
 
   get 'draw_quote_auto' => 'agents#draw_quote_auto'
   get 'resend_quote_auto' => 'agents#resend_quote_auto'

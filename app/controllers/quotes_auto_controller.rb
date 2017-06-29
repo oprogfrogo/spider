@@ -59,4 +59,20 @@ class QuotesAutoController < ApplicationController
     end
   end
 
+  def edit
+    @quote_auto = QuotesAuto.where(auto_id: 1)
+  end
+
+  def update
+    @quote = QuotesAuto.find(params[:id])
+    @quote.attributes = params[:quote]
+    if @quote.save
+      flash[:success] = "Successfully updated"
+    else
+      flash[:alert] = "Update failed"
+    end
+
+    redirect_to edit_quote_path, id: params[:id]
+  end
+
 end

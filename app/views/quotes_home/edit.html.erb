@@ -1,0 +1,249 @@
+<div class="row">
+    <%= form_for @quotes_home do |f| %>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Dwelling</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :dwelling_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :dwelling_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Personal Property</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :personal_property_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :personal_property_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Loss Of Use</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :loss_of_use_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :loss_of_use_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Liability</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :liability_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :liability_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Medical Payments</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :medical_payments_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :medical_payments_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Deductible</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :deductible_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :deductible_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Premises Alarm Fire System</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :premises_alarm_fire_system_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :premises_alarm_fire_system_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Contents Other Residents</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :contents_other_residents_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :contents_other_residents_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Unscheduled Personal Property</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :unscheduled_personal_property_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :unscheduled_personal_property_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Jewels Watches Furs</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :jewels_watches_furs_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :jewels_watches_furs_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Money</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :money_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :money_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Securities</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :securities_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :securities_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Silver Gold Pewter</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :silver_gold_pewter_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :silver_gold_pewter_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Firearms</label>
+                <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :firearms_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :firearms_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Electronic App Vehicles</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :electronic_app_vehicles_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :electronic_app_vehicles_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Electronic App Business</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :electronic_app_business_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :electronic_app_business_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Workers Compensation</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :workers_compensation_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :workers_compensation_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Inflation Guard</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :inflation_guard_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :inflation_guard_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Ordinance Or Law Converage</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :ordinance_or_law_converage_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :ordinance_or_law_converage_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Replace Cost Contents</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :replace_cost_contents_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :replace_cost_contents_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Fungi Mold Bacteria</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :fungi_mold_bacteria_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :fungi_mold_bacteria_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <label>Total Premium</label>
+            <div class="row">
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :total_premium_limit, placeholder: 'Limit' %>
+                </div>
+                <div class="small-6 medium-6 columns">
+                    <%= f.text_field :total_premium_premium, placeholder: 'Premium' %>
+                </div>
+            </div>
+        </div>
+        <div class="small-12 medium-4 medium-centered">
+            <%= submit_tag 'Save Home Template', class: 'button float-right' %>
+        </div>
+    <% end %>
+</div>
