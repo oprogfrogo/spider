@@ -47,11 +47,11 @@
                                 <%= auto.status %>
                             <% end %>
                         </td>
-                        <td><%= auto.user.profile.name %></td>
-                        <td><%= auto.user.profile.phone_number %></td>
-                        <td><%= auto.user.profile.email %></td>
-                        <td><%= auto.user.profile.dl_number %></td>
-                        <td><%= auto.user.profile.martial_status %></td>
+                        <td><%= auto.user.profile.try(:name) %></td>
+                        <td><%= auto.user.profile.try(:phone_number) %></td>
+                        <td><%= auto.user.profile.try(:email) %></td>
+                        <td><%= auto.user.profile.try(:dl_number) %></td>
+                        <td><%= auto.user.profile.try(:martial_status) %></td>
                         <td><%= auto.vin %></td>
                         <td><%= auto.year %></td>
                         <td><%= auto.make %></td>

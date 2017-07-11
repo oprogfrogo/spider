@@ -9,6 +9,7 @@ class CreateHomes < ActiveRecord::Migration
       t.string :postal_code
       t.string :year_built
       t.boolean :alarm_system
+      t.string :token
       t.string :status
 
       t.timestamps null: false

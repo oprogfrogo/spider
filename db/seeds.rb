@@ -12,11 +12,27 @@ Agent.create([
 
 User.create([
   {
-    fullname: 'Simon Lee'
     email: 'oprogfrogo@gmail.com',
     password: 'sdfsdf',
     token: 'Simon Lee',
     confirmed: 'Y'
+  }
+])
+
+Profile.create([
+  {
+	user_id: 1,
+	name: "Simon Lee",
+	phone_number: "888-888-8888",
+	email: "simonphp@gmail.com",
+	street: "111 Test St.",
+	street2: "",
+	city: "Los Angeles",
+	state: "CA",
+	postal_code: "90066",
+	dob: "1989-09-01",
+	dl_number: "B28939023",
+	martial_status: "N"
   }
 ])
 
@@ -41,8 +57,9 @@ Home.create([
     state: 'CA',
     postal_code: '90066',
     year_built: '2016',
-    alarm_system: 'Y',
-    status: 'pending'
+    alarm_system: true,
+    status: 'pending',
+    token: 'd5c09355-0d2f-44e2-be00-06f3ce9d8111'
   }
 ])
 
@@ -97,16 +114,16 @@ QuotesAuto.create([
 QuotesHome.create([
   {
     home_id: 1,
-    dwelling_limit: '',
-    dwelling_premium: '',
-    personal_property_limit: '',
-    personal_property_premium: '',
-    loss_of_use_limit: '',
-    loss_of_use_premium: '',
-    liability_limit: '',
-    liability_premium: '',
-    medical_payments_limit: '',
-    medical_payments_premium: '',
+    dwelling_limit: '10',
+    dwelling_premium: '100',
+    personal_property_limit: '20',
+    personal_property_premium: '200',
+    loss_of_use_limit: '30',
+    loss_of_use_premium: '300',
+    liability_limit: '40',
+    liability_premium: '400',
+    medical_payments_limit: '50',
+    medical_payments_premium: '500',
     deductible_limit: '',
     deductible_premium: '',
     premises_alarm_fire_system_limit: '',

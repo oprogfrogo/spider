@@ -50,11 +50,11 @@
                                 <%= home.status %>
                             <% end %>
                         </td>
-                        <td><%= home.user.profile.name %></td>
-                        <td><%= home.user.profile.phone_number %></td>
-                        <td><%= home.user.profile.email %></td>
-                        <td><%= home.user.profile.dl_number %></td>
-                        <td><%= home.user.profile.martial_status %></td>
+                        <td><%= home.user.profile.try(:name) %></td>
+                        <td><%= home.user.profile.try(:phone_number) %></td>
+                        <td><%= home.user.profile.try(:email) %></td>
+                        <td><%= home.user.profile.try(:dl_number) %></td>
+                        <td><%= home.user.profile.try(:martial_status) %></td>
                         <td><%= home.street %></td>
                         <td><%= home.street2 %></td>
                         <td><%= home.city %></td>

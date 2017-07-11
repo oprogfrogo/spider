@@ -1,6 +1,5 @@
 <div>
   <div><%= image_tag 'https://s3-us-west-2.amazonaws.com/spiderpolicy/spider_policy_man.png', width: '70%' %></div>
-  <div style="margin-top: 30px"><%= Date.today %></div>
   <div style="margin-top: 30px">
     <p><%= @user.profile.name %></p>
     <p><%= @home.street %></p>
@@ -13,123 +12,126 @@
     <table id="home_quote_approve_table" cellpadding="5" cellspacing="0">
       <thead>
         <tr>
-          <th style="background: #000; color: #fff;">Coverage</th>
-          <th style="background: #9e9ace; color: #fff;">Limit</th>
-          <th style="background: #90cc5f; color: #fff;">Premium</th>
+          <th style="min-width: 100px; background: #CCC; color: #fff;">Coverage</th>
+          <th style="min-width: 100px; background: #CCC; color: #fff;">Limit</th>
+          <th style="min-width: 100px; background: #CCC; color: #fff;">Premium</th>
         </tr>
       </thead>
       <tbody>
         <tr>
           <td>Dwelling</td>
-          <td style="background: #9e9ace;"><%= @quotes.dwelling_limit %></td>
-          <td style="background: #90cc5f;"><%= @quotes.dwelling_premium %></td>
+          <td style="min-width: 100px; background: #9e9ace;"><%= @quotes.dwelling_limit %></td>
+          <td style="min-width: 100px; background: #90cc5f;"><%= @quotes.dwelling_premium %></td>
         </tr>
         <tr>
           <td>Personal Property</td>
-          <td style="background: #9e9ace;"><%= @quotes.personal_property_limit %></td>
-          <td style="background: #90cc5f;"><%= @quotes.personal_property_premium %></td>
+          <td style="min-width: 100px; background: #9e9ace;"><%= @quotes.personal_property_limit %></td>
+          <td style="min-width: 100px; background: #90cc5f;"><%= @quotes.personal_property_premium %></td>
         </tr>
         <tr>
           <td>Loss Of Use</td>
-          <td style="background: #9e9ace;"><%= @quotes.loss_of_use_limit %></td>
-          <td style="background: #90cc5f;"><%= @quotes.loss_of_use_premium %></td>
+          <td style="min-width: 100px; background: #9e9ace;"><%= @quotes.loss_of_use_limit %></td>
+          <td style="min-width: 100px; background: #90cc5f;"><%= @quotes.loss_of_use_premium %></td>
         </tr>
         <tr>
           <td>Liability</td>
-          <td style="background: #9e9ace;"><%= @quotes.liability_limit %></td>
-          <td style="background: #90cc5f;"><%= @quotes.liability_premium %></td>
+          <td style="min-width: 100px; background: #9e9ace;"><%= @quotes.liability_limit %></td>
+          <td style="min-width: 100px; background: #90cc5f;"><%= @quotes.liability_premium %></td>
         </tr>
         <tr>
           <td>Medical Payments</td>
-          <td style="background: #9e9ace;"><%= @quotes.medical_payments_limit %></td>
-          <td style="background: #90cc5f;"><%= @quotes.medical_payments_premium %></td>
+          <td style="min-width: 100px; background: #9e9ace;"><%= @quotes.medical_payments_limit %></td>
+          <td style="min-width: 100px; background: #90cc5f;"><%= @quotes.medical_payments_premium %></td>
         </tr>
         <tr>
           <td>Deductible</td>
-          <td style="background: #9e9ace;"><%= @quotes.deductible_limit %></td>
-          <td style="background: #90cc5f;"><%= @quotes.deductible_premium %></td>
+          <td style="min-width: 100px; background: #9e9ace;"><%= @quotes.deductible_limit %></td>
+          <td style="min-width: 100px; background: #90cc5f;"><%= @quotes.deductible_premium %></td>
         </tr>
         <tr>
           <td>Premises Alarm Fire System</td>
-          <td style="background: #9e9ace;"><%= @quotes.premises_alarm_fire_system_limit %></td>
-          <td style="background: #90cc5f;"><%= @quotes.premises_alarm_fire_system_premium %></td>
+          <td style="min-width: 100px; background: #9e9ace;"><%= @quotes.premises_alarm_fire_system_limit %></td>
+          <td style="min-width: 100px; background: #90cc5f;"><%= @quotes.premises_alarm_fire_system_premium %></td>
         </tr>
         <tr>
           <td>Contents Other Residents</td>
-          <td style="background: #9e9ace;"><%= @quotes.contents_other_residents_limit %></td>
-          <td style="background: #90cc5f;"><%= @quotes.contents_other_residents_premium %></td>
+          <td style="min-width: 100px; background: #9e9ace;"><%= @quotes.contents_other_residents_limit %></td>
+          <td style="min-width: 100px; background: #90cc5f;"><%= @quotes.contents_other_residents_premium %></td>
         </tr>
         <tr>
           <td>Unscheduled Personal Property</td>
-          <td style="background: #9e9ace;"><%= @quotes.unscheduled_personal_property_limit %></td>
-          <td style="background: #90cc5f;"><%= @quotes.unscheduled_personal_property_premium %></td>
+          <td style="min-width: 100px; background: #9e9ace;"><%= @quotes.unscheduled_personal_property_limit %></td>
+          <td style="min-width: 100px; background: #90cc5f;"><%= @quotes.unscheduled_personal_property_premium %></td>
         </tr>
         <tr>
           <td>Jewels Watches Furs</td>
-          <td style="background: #9e9ace;"><%= @quotes.jewels_watches_furs_limit %></td>
-          <td style="background: #90cc5f;"><%= @quotes.jewels_watches_furs_premium %></td>
+          <td style="min-width: 100px; background: #9e9ace;"><%= @quotes.jewels_watches_furs_limit %></td>
+          <td style="min-width: 100px; background: #90cc5f;"><%= @quotes.jewels_watches_furs_premium %></td>
         </tr>
         <tr>
           <td>Money</td>
-          <td style="background: #9e9ace;"><%= @quotes.money_limit %></td>
-          <td style="background: #90cc5f;"><%= @quotes.money_premium %></td>
+          <td style="min-width: 100px; background: #9e9ace;"><%= @quotes.money_limit %></td>
+          <td style="min-width: 100px; background: #90cc5f;"><%= @quotes.money_premium %></td>
         </tr>
         <tr>
           <td>Securities</td>
-          <td style="background: #9e9ace;"><%= @quotes.securities_limit %></td>
-          <td style="background: #90cc5f;"><%= @quotes.securities_premium %></td>
+          <td style="min-width: 100px; background: #9e9ace;"><%= @quotes.securities_limit %></td>
+          <td style="min-width: 100px; background: #90cc5f;"><%= @quotes.securities_premium %></td>
         </tr>
         <tr>
           <td>Silver Gold Pewter</td>
-          <td style="background: #9e9ace;"><%= @quotes.silver_gold_pewter_limit %></td>
-          <td style="background: #90cc5f;"><%= @quotes.silver_gold_pewter_premium %></td>
+          <td style="min-width: 100px; background: #9e9ace;"><%= @quotes.silver_gold_pewter_limit %></td>
+          <td style="min-width: 100px; background: #90cc5f;"><%= @quotes.silver_gold_pewter_premium %></td>
         </tr>
         <tr>
           <td>Firearms</td>
-          <td style="background: #9e9ace;"><%= @quotes.firearms_limit %></td>
-          <td style="background: #90cc5f;"><%= @quotes.firearms_premium %></td>
+          <td style="min-width: 100px; background: #9e9ace;"><%= @quotes.firearms_limit %></td>
+          <td style="min-width: 100px; background: #90cc5f;"><%= @quotes.firearms_premium %></td>
         </tr>
         <tr>
           <td>Electronic App Vehicles</td>
-          <td style="background: #9e9ace;"><%= @quotes.electronic_app_vehicles_limit %></td>
-          <td style="background: #90cc5f;"><%= @quotes.electronic_app_vehicles_premium %></td>
+          <td style="min-width: 100px; background: #9e9ace;"><%= @quotes.electronic_app_vehicles_limit %></td>
+          <td style="min-width: 100px; background: #90cc5f;"><%= @quotes.electronic_app_vehicles_premium %></td>
         </tr>
         <tr>
           <td>Electronic App Business</td>
-          <td style="background: #9e9ace;"><%= @quotes.electronic_app_business_limit %></td>
-          <td style="background: #90cc5f;"><%= @quotes.electronic_app_business_premium %></td>
+          <td style="min-width: 100px; background: #9e9ace;"><%= @quotes.electronic_app_business_limit %></td>
+          <td style="min-width: 100px; background: #90cc5f;"><%= @quotes.electronic_app_business_premium %></td>
         </tr>
         <tr>
           <td>Workers Compensation</td>
-          <td style="background: #9e9ace;"><%= @quotes.workers_compensation_limit %></td>
-          <td style="background: #90cc5f;"><%= @quotes.workers_compensation_premium %></td>
+          <td style="min-width: 100px; background: #9e9ace;"><%= @quotes.workers_compensation_limit %></td>
+          <td style="min-width: 100px; background: #90cc5f;"><%= @quotes.workers_compensation_premium %></td>
         </tr>
         <tr>
           <td>Inflation Guard</td>
-          <td style="background: #9e9ace;"><%= @quotes.inflation_guard_limit %></td>
-          <td style="background: #90cc5f;"><%= @quotes.inflation_guard_premium %></td>
+          <td style="min-width: 100px; background: #9e9ace;"><%= @quotes.inflation_guard_limit %></td>
+          <td style="min-width: 100px; background: #90cc5f;"><%= @quotes.inflation_guard_premium %></td>
         </tr>
         <tr>
           <td>Ordinance Or Law Converage</td>
-          <td style="background: #9e9ace;"><%= @quotes.ordinance_or_law_converage_limit %></td>
-          <td style="background: #90cc5f;"><%= @quotes.ordinance_or_law_converage_premium %></td>
+          <td style="min-width: 100px; background: #9e9ace;"><%= @quotes.ordinance_or_law_converage_limit %></td>
+          <td style="min-width: 100px; background: #90cc5f;"><%= @quotes.ordinance_or_law_converage_premium %></td>
         </tr>
         <tr>
           <td>Replace Cost Contents</td>
-          <td style="background: #9e9ace;"><%= @quotes.replace_cost_contents_limit %></td>
-          <td style="background: #90cc5f;"><%= @quotes.replace_cost_contents_premium %></td>
+          <td style="min-width: 100px; background: #9e9ace;"><%= @quotes.replace_cost_contents_limit %></td>
+          <td style="min-width: 100px; background: #90cc5f;"><%= @quotes.replace_cost_contents_premium %></td>
         </tr>
         <tr>
           <td>Fungi Mold Bacteria</td>
-          <td style="background: #9e9ace;"><%= @quotes.fungi_mold_bacteria_limit %></td>
-          <td style="background: #90cc5f;"><%= @quotes.fungi_mold_bacteria_premium %></td>
+          <td style="min-width: 100px; background: #9e9ace;"><%= @quotes.fungi_mold_bacteria_limit %></td>
+          <td style="min-width: 100px; background: #90cc5f;"><%= @quotes.fungi_mold_bacteria_premium %></td>
         </tr>
         <tr>
           <td>Total</td>
-          <td style="background: #9e9ace;"><%= @quotes.total_premium_limit %></td>
-          <td style="background: #90cc5f;"><%= @quotes.total_premium_premium %></td>
+          <td style="min-width: 100px; background: #9e9ace;"><%= @quotes.total_premium_limit %></td>
+          <td style="min-width: 100px; background: #90cc5f;"><%= @quotes.total_premium_premium %></td>
         </tr>
       </tbody>
     </table>
+  </div>
+  <div style="text-align: center">
+      <%= render 'ratingstars', quotetype: 'home', id: @home.id %>
   </div>
 </div>

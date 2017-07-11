@@ -17,6 +17,7 @@ class HomesController < ApplicationController
         @home.user_id = @user.id
         if @home.valid?
           @home.status = 'pending'
+          @home.token = SecureRandom.uuid
           @home.save
           flash[:success] = "Thank you, we have received your quote request. An agent will contact you shortly regarding your new quote."
         end

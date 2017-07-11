@@ -31,6 +31,7 @@ ActiveRecord::Schema.define(version: 20170614062020) do
     t.integer  "year",       limit: 4
     t.string   "make",       limit: 255
     t.string   "model",      limit: 255
+    t.string   "token",      limit: 255
     t.string   "status",     limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
@@ -47,6 +48,7 @@ ActiveRecord::Schema.define(version: 20170614062020) do
     t.string   "postal_code",  limit: 255
     t.string   "year_built",   limit: 255
     t.boolean  "alarm_system"
+    t.string   "token",        limit: 255
     t.string   "status",       limit: 255
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false

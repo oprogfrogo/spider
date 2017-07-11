@@ -1,6 +1,6 @@
 class Notifications < ApplicationMailer
 
-  default from: 'noreply@spiderpolicy.com'
+  default from: 'Spider Policy <noreply@spiderpolicy.com>'
 
   def home_quote_request(user, homes)
     @user = user

@@ -42,6 +42,10 @@ class WelcomeController < ApplicationController
     end
   end
 
+  def rateus
+    
+  end
+
   private
   def user_params
     params.require(:user).permit(:full_name, :phone, :email, :street, :street2, :city, :state, :zip)

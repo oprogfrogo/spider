@@ -67,6 +67,7 @@ Rails.application.routes.draw do
   get 'contact_us' => 'welcome#contact_us'
   get 'privay_policy' => 'welcome#privay_policy'
   get 'claims' => 'welcome#claims'
+  get 'rateus' => 'welcome#rateus'
 
   get 'homes' => 'homes#new'
   get 'approve_home_request' => 'homes#approve_home_request'

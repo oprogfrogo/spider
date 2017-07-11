@@ -11,12 +11,12 @@ class AutosController < ApplicationController
 
       if Rails.cache.read("uid-#{session.id}").present?
         @user = User.where(id: Rails.cache.read("uid-#{session.id}")).try(:first)
-        @home = Auto.new(params[:auto])
-        @home.user_id = @user.id
-        if @home.valid?
-          @home.status = 'pending'
-          @home.token = SecureRandom.uuid
-          @home.save
+        @auto = Auto.new(params[:auto])
+        @auto.user_id = @user.id
+        if @auto.valid?
+          @auto.status = 'pending'
+          @auto.token = SecureRandom.uuid
+          @auto.save
           flash[:success] = "Thank you, we have received your quote request. An agent will contact you shortly regarding your new quote."
         end
       else
@@ -24,20 +24,20 @@ class AutosController < ApplicationController
         @user.build_profile(params[:profile])
         if @user.valid?
           @user.save
-          @home = Auto.new(params[:auto])
-          @home.user_id = @user.present? ? @user.id : User.where(email: params[:user][:email]).try(:first).id
-          if @home.valid?
-            @home.status = 'pending'
-            @home.token = SecureRandom.uuid
-            @home.save
+          @auto = Auto.new(params[:auto])
+          @auto.user_id = @user.present? ? @user.id : User.where(email: params[:user][:email]).try(:first).id
+          if @auto.valid?
+            @auto.status = 'pending'
+            @auto.token = SecureRandom.uuid
+            @auto.save
             flash[:success] = "Thank you, we have received your quote request. An agent will contact you shortly regarding your new quote."
           end
         else
           @user = User.new(params[:user])
           @user.build_profile(params[:profile])
-          @home = Auto.new(params[:auto])
+          @auto = Auto.new(params[:auto])
           @user.valid?
-          @home.valid?
+          @auto.valid?
           render action: 'new'
           return
         end

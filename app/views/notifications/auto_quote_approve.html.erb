@@ -34,11 +34,14 @@
                                 color='#FFFFFF'
                                 end %>
 
-                            <td style="background: <%= color %>" ><%= quote[column] %></td>
+                            <td style="background: <%= color %>; min-width: 100px"><%= quote[column] %></td>
                         <% } %>
                     <tr>
                 <% } %>
             </tbody>
         </table>
+    </div>
+    <div style="text-align: center">
+        <%= render 'ratingstars', quotetype: 'auto', id: @auto.id %>
     </div>
 </div>
