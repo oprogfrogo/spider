@@ -12,6 +12,7 @@ Agent.create([
 
 User.create([
   {
+    id: 1,
     email: 'oprogfrogo@gmail.com',
     password: 'sdfsdf',
     token: '656e1ab2-ae51-4c17-af1e-475a675c6128',
