@@ -107,7 +107,8 @@ QuotesAuto.create([
     waiver_of_collision_deductible: 'Included',
     rental_reimbursement: '$40 day for 30 days',
     roadside_coverage: 'Included',
-    total_premium: '$600 / Month'
+    total_premium: '$600 / Month',
+    rating: ''
   }
 ])
 
@@ -157,6 +158,7 @@ QuotesHome.create([
     fungi_mold_bacteria_limit: '',
     fungi_mold_bacteria_premium: '',
     total_premium_limit: '',
-    total_premium_premium: ''
+    total_premium_premium: '',
+    rating: ''
   }
 ])

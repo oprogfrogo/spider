@@ -2,7 +2,7 @@ class AgentsController < ApplicationController
 
   layout 'agents'
 
-  before_action :check_agent_auth, only: [:homes, :autos]
+  before_action :check_agent_auth, only: [:index, :homes, :autos]
 
   def draw_quote_auto
     @quotes_auto = QuotesAuto.new
@@ -49,7 +49,7 @@ class AgentsController < ApplicationController
     @agent = Agent.new
     Rails.cache.write("quote_token-#{session.id}", params[:quote_token]) if params[:quote_token].present?
 
-    @home_quotes = Home.all
+    @home_quotes = Home.where.not(id: 1)
 
     if @home_quotes.blank?
       flash[:alert] = "No results found for Homes"

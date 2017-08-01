@@ -18,7 +18,7 @@ class QuotesAutoController < ApplicationController
 
     if @bronze.valid? && @silver.valid? && @gold.valid?
       @auto = Auto.find(params[:auto_id])
-      @auto.status = 'completed'
+      @auto.status = 'quoted'
       @auto.save
 
       @bronze.save
@@ -59,20 +59,21 @@ class QuotesAutoController < ApplicationController
     end
   end
 
-  def edit
-    @quote_auto = QuotesAuto.where(auto_id: 1)
+  def edit_multiple
+    @quotes_auto = QuotesAuto.where(auto_id: 1)
+    logger.error(@quotes_auto.count)
   end
 
-  def update
-    @quote = QuotesAuto.find(params[:id])
-    @quote.attributes = params[:quote]
-    if @quote.save
-      flash[:success] = "Successfully updated"
+  def update_multiple
+    @quote = QuotesAuto.update(params[:quotes_autos].keys, params[:quotes_autos].values)
+    @quote.reject! { |p| p.errors.empty? }
+    if @quote.empty?
+      flash[:success] = "Updated default values for Auto Quotes"
+      redirect_to agents_url
     else
-      flash[:alert] = "Update failed"
+      flash[:alert] = "Problem updating Auto Quotes!"
+      render "edit_multiple"
     end
-
-    redirect_to edit_quote_path, id: params[:id]
   end
 
 end

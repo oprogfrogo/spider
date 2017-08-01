@@ -1,0 +1,31 @@
+<%= form_tag update_multiple_quotes_auto_index_path, method: :post do %>
+  <ul>
+  <% @quotes_auto.each do |quotes_auto| %>
+    <li>
+      <%= hidden_field_tag "quotes_auto[]", quotes_auto.id %>
+      <ul class="errors">
+        <% quotes_auto.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </li>
+  <% end %>
+  </ul>
+  <div>
+  <% for quote in @quotes_auto %>
+    <%= fields_for "quotes_autos[]", quote do |f| %>
+      <% case quote.category %>
+      <% when 'bronze' %>
+        <div class='medium-4 columns bg-bronze'><%= render "fields", f: f, quote: quote %></div>
+      <% when 'silver' %>
+        <div class='medium-4 columns bg-silver'><%= render "fields", f: f, quote: quote %></div>
+      <% when 'gold' %>
+        <div class='medium-4 columns bg-gold'><%= render "fields", f: f, quote: quote %></div>
+      <% end %>
+    <% end %>
+  <% end %>
+  </div>
+  <div class='text-center' style='padding-top: 40px; clear: both'>
+      <%= submit_tag "Update", class: "button large" %>
+  </div>
+<% end %>

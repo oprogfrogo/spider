@@ -35,5 +35,13 @@ class SessionsController < ApplicationController
       format.html { redirect_to root_url }
     end
   end
+  
+  def view_policies
+    user_id = Rails.cache.read("uid-#{session.id}")
+    if user_id.present?
+      @autos = Auto.where(user_id: user_id)
+      @homes = Home.where(user_id: user_id)
+    end
+  end
 
 end

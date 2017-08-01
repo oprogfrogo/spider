@@ -21,7 +21,12 @@ Rails.application.routes.draw do
   resources :registrations
   resources :quotes
   resources :quotes_home
-  resources :quotes_auto
+  resources :quotes_auto do 
+    collection do 
+      get :edit_multiple
+      post :update_multiple
+    end
+  end
 
   # Example resource route with options:
   #   resources :products do
@@ -108,4 +113,5 @@ Rails.application.routes.draw do
   post 'users_check_exist' => 'users#users_check_exist'
 
   post 'agent_auth' => 'agents#auth'
+  get 'view_policies' => 'sessions#view_policies'
 end

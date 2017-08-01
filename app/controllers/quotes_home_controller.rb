@@ -10,7 +10,7 @@ class QuotesHomeController < ApplicationController
 
       if @quotes_home.valid?
         @home = Home.find(params[:home_id])
-        @home.status = 'completed'
+        @home.status = 'quoted'
         @home.save
 
         @quotes_home.save

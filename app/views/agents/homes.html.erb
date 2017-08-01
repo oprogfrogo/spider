@@ -39,12 +39,12 @@
                             <% if home.status == 'pending' %>
                                 <%= link_to 'Create Quote', { action: "draw_quote_home", id: home.id }, class: 'button' %>
                             <% else %>
-                                Completed
+                                <%= home.status.titleize %>
                             <% end %>
                         </td>
                         <td><%= home.id %></td>
                         <td>
-                            <% if home.status == 'completed' %>
+                            <% if home.status == 'quoted' %>
                                 <%= link_to 'Resend', resend_quote_home_path(id: home.id), class: 'button' %>
                             <% else %>
                                 <%= home.status %>

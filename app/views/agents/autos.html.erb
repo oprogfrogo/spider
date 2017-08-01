@@ -35,13 +35,13 @@
                         <td>
                             <% if auto.status == 'pending' %>
                                 <%= link_to 'Create Quote', { action: "draw_quote_auto", id: auto.id }, class: 'button' %>
-                            <% else %>
-                                Completed
+                            <% else  %>
+                                <%= auto.status.titleize %>
                             <% end %>
                         </td>
                         <td><%= auto.id %></td>
                         <td>
-                            <% if auto.status == 'completed' %>
+                            <% if auto.status == 'quoted' %>
                                 <%= link_to 'Resend', resend_quote_auto_path(id: auto.id), class: 'button' %>
                             <% else %>
                                 <%= auto.status %>

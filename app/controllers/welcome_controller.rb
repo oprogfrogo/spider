@@ -43,7 +43,24 @@ class WelcomeController < ApplicationController
   end
 
   def rateus
+    case params[:type]
+    when 'home'
+      home = QuotesHome.find(params[:id])
+      if home.present?
+        home.rating = params[:rating]
+        home.save
+      end
+    when 'auto'
+      auto = QuotesAuto.find(params[:id])
+      if auto.present?
+        auto.rating = params[:rating]
+        auto.save
+      end
+    end
     
+    respond_to do |format|
+      format.html
+    end
   end
 
   private

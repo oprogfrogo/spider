@@ -14,6 +14,7 @@ class CreateQuotesAuto < ActiveRecord::Migration
       t.string :rental_reimbursement
       t.string :roadside_coverage
       t.string :total_premium
+      t.integer :rating
 
       t.timestamps null: false
     end
