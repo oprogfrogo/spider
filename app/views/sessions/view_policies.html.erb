@@ -1,47 +1,59 @@
 <h2>Autos</h2>
-<table class="datatable display responsive no-wrap">
-    <thead>
-        <tr>
-            <th>Vin</th>
-            <th>Year</th>
-            <th>Make</th>
-            <th>Model</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @autos.each {|auto| %>
+<% if @autos.present? %>
+    <table class="datatable display responsive no-wrap">
+        <thead>
             <tr>
-                <td><%= auto.vin %></td>
-                <td><%= auto.year %></td>
-                <td><%= auto.make %></td>
-                <td><%= auto.model %></td>
+                <th>Quote ID</th>
+                <th>Vin</th>
+                <th>Year</th>
+                <th>Make</th>
+                <th>Model</th>
             </tr>
-        <% } %>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            <% @autos.each {|auto| %>
+                <tr>
+                    <td><%= auto.id %></td>
+                    <td><%= auto.vin %></td>
+                    <td><%= auto.year %></td>
+                    <td><%= auto.make %></td>
+                    <td><%= auto.model %></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+<% else %>
+    No Existing Auto Quotes
+<% end %>
 
 <h2>Homes</h2>
-<table class="datatable display responsive no-wrap">
-    <thead>
-        <tr>
-            <th>Street</th>
-            <th>Street 2</th>
-            <th>City</th>
-            <th>State</th>
-            <th>Postal Code</th>
-            <th>Year Built</th>
-        </tr>
-    </thead>
-    <tbody>
-        <% @homes.each {|home| %>
+<% if @homes.present? %>
+    <table class="datatable display responsive no-wrap">
+        <thead>
             <tr>
-                <td><%= home.street %></td>
-                <td><%= home.street2 %></td>
-                <td><%= home.city %></td>
-                <td><%= home.state %></td>
-                <td><%= home.postal_code %></td>
-                <td><%= home.year_built %></td>
+                <th>Quote ID</th>
+                <th>Street</th>
+                <th>Street 2</th>
+                <th>City</th>
+                <th>State</th>
+                <th>Postal Code</th>
+                <th>Year Built</th>
             </tr>
-        <% } %>
-    </tbody>
-</table>
+        </thead>
+        <tbody>
+            <% @homes.each {|home| %>
+                <tr>
+                    <td><%= home.id %></td>
+                    <td><%= home.street %></td>
+                    <td><%= home.street2 %></td>
+                    <td><%= home.city %></td>
+                    <td><%= home.state %></td>
+                    <td><%= home.postal_code %></td>
+                    <td><%= home.year_built %></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+<% else %>
+    No Existing Home Quotes
+<% end %>

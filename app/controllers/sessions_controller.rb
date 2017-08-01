@@ -39,8 +39,8 @@ class SessionsController < ApplicationController
   def view_policies
     user_id = Rails.cache.read("uid-#{session.id}")
     if user_id.present?
-      @autos = Auto.where(user_id: user_id)
-      @homes = Home.where(user_id: user_id)
+      @autos = Auto.where(user_id: user_id).where.not(id: 1)
+      @homes = Home.where(user_id: user_id).where.not(id: 1)
     end
   end
 
