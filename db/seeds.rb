@@ -14,7 +14,7 @@ User.create([
   {
     email: 'oprogfrogo@gmail.com',
     password: 'sdfsdf',
-    token: 'Simon Lee',
+    token: '656e1ab2-ae51-4c17-af1e-475a675c6128',
     confirmed: 'Y'
   }
 ])
