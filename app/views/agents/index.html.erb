@@ -29,11 +29,12 @@
             Choose task
         </div>
         <div class="card-section" style='min-height: 100px; background: #d4d4d4;'>
-            <div class='large-12 large-centered'><%= link_to 'Review Pending Homes', agent_homes_path, class: 'button large expanded' %></div>
-            <div class='large-12 large-centered'><%= link_to 'Review Pending Autos', agent_autos_path, class: 'button large expanded' %></div>
-            <div class='large-12 large-centered'><%= link_to 'Update Quote Defaults', edit_multiple_quotes_auto_index_path, class: 'button large expanded' %></div>
+            <div class='large-12 large-centered'><%= link_to '<i class="fa fa-bus"></i> Review Pending Autos'.html_safe, agent_autos_path, class: 'button large expanded' %></div>
+            <div class='large-12 large-centered'><%= link_to '<i class="fa fa-home"></i> Review Pending Homes'.html_safe, agent_homes_path, class: 'button large expanded' %></div>
+            <div class='large-12 large-centered'><%= link_to '<i class="fa fa-bus"></i> Auto Quote Defaults'.html_safe, edit_multiple_quotes_auto_index_path, class: 'button large expanded' %></div>
+            <div class='large-12 large-centered'><%= link_to '<i class="fa fa-home"></i> Home Quote Defaults'.html_safe, edit_quotes_home_path(id: 1), class: 'button large expanded' %></div>
             <% if @agent.is_manager %>
-                <div class='large-12 large-centered'><%= link_to 'Manage Agents', agent_manage_path, class: 'button large expanded' %></div>
+                <div class='large-12 large-centered'><%= link_to '<i class="fa fa-user"></i> Manage Agents'.html_safe, agent_manage_path, class: 'button large expanded' %></div>
             <% end %>
         </div>
     </div>

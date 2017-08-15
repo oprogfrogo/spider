@@ -35,7 +35,13 @@
                 </div>
                 <div class="off-canvas position-right" id="offCanvasRight" data-off-canvas>
                     <ul>
-                        <%= link_to '<li><button class="button large-11 small-11"><i class="fa fa-user-o"></i> Logout</button></li>'.html_safe, agent_logout_url %>
+                        <%= link_to '<li><button class="button large-11 small-11"><i class="fa fa-eye"></i> View Tasks</button></li>'.html_safe, agents_url %>
+                        <%= link_to '<li><button class="button large-11 small-11"><i class="fa fa-home"></i> Review Homes</button></li>'.html_safe, agent_homes_path %>
+                        <%= link_to '<li><button class="button large-11 small-11"><i class="fa fa-bus"></i> Review Autos</button></li>'.html_safe, agent_autos_path %>
+                        <%= link_to '<li><button class="button large-11 small-11"><i class="fa fa-home"></i> Home Default</button></li>'.html_safe, edit_quotes_home_path(id: 1) %>
+                        <%= link_to '<li><button class="button large-11 small-11"><i class="fa fa-bus"></i> Auto Default</button></li>'.html_safe, edit_multiple_quotes_auto_index_path %>
+                        <%= link_to '<li><button class="button large-11 small-11"><i class="fa fa-user-o"></i> Manage Agents</button></li>'.html_safe, agent_manage_path %>
+                        <%= link_to '<li><button class="button large-11 small-11"><i class="fa fa-lock"></i> Logout</button></li>'.html_safe, agent_logout_url %>
                     </ul>
                 </div>
             </div>
