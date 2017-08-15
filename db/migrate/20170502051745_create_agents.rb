@@ -7,7 +7,8 @@ class CreateAgents < ActiveRecord::Migration
       t.string :email
       t.string :phone
       t.string :ext
-      t.integer :round_robin, :null => false, :default => 0
+      t.boolean :is_manager
+      t.boolean :round_robin, :null => false
 
       t.timestamps null: false
     end

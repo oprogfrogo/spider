@@ -6,8 +6,19 @@ Agent.create([
     email: 'oprogfrogo@gmail.com',
     phone: '310-951-5044',
     ext: nil,
+    is_manager: 1,
     round_robin: 1
-  }
+  },
+  {
+    login: 'sarah',
+    password: 'sdfsdf',
+    name: 'Sarah Somebody',
+    email: 'oprogfrogo@gmail.com',
+    phone: '310-951-5044',
+    ext: nil,
+    is_manager: 0,
+    round_robin: 1
+  }  
 ])
 
 User.create([

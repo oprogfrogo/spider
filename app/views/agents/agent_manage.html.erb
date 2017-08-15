@@ -1,0 +1,47 @@
+<div class='row'>
+    <div class="large-10 large-centered">
+        <table class="datatable display responsive no-wrap">
+            <thead>
+                <tr>
+                    <th>Edit</th>
+                    <th>Login</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone</th>
+                    <th>Ext</th>
+                    <th>Is Manager?</th>
+                    <th>Include Round Robin?</th>
+                    <th>Delete</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @agents.each {|agent| %>
+                <tr>
+                    <td><%= link_to 'Edit', agent_edit_path(id: agent.id), class: 'button' %></td>
+                    <td><%= agent.login %></td>
+                    <td><%= agent.name %></td>
+                    <td><%= agent.email %></td>
+                    <td><%= agent.phone %></td>
+                    <td><%= agent.ext %></td>
+                    <td><%= agent.is_manager %></td>
+                    <td><%= agent.round_robin %></td>
+                    <td><%= link_to 'Delete', agent_path(id: agent.id), class: 'button', method: 'delete', data: { confirm: "Are you sure you want to delete #{agent.name}?" } %></td>
+                </tr>
+                <% } %>
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class='row'>
+    <div class="large-6 large-centered text-center">
+        <%= link_to 'Add New Agent', new_agent_path, class: 'button large' %>
+    </div>
+</div>
+
+
+<script>
+    // Datatables
+    $('.datatable').DataTable({
+        "scrollX": true
+    });
+</script>

@@ -81,6 +81,8 @@ Rails.application.routes.draw do
   get 'agent_logout' => 'agents#logout'
   get 'agent_homes' => 'agents#homes'
   get 'agent_autos' => 'agents#autos'
+  get 'agent_manage' => 'agents#agent_manage'
+  get 'agent_edit' => 'agents#agent_edit'
 
   get 'client_login' => 'sessions#create'
   get 'session_logout' => 'sessions#logout'

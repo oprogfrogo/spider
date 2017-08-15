@@ -51,11 +51,7 @@ class WelcomeController < ApplicationController
         home.save
       end
     when 'auto'
-      auto = QuotesAuto.find(params[:id])
-      if auto.present?
-        auto.rating = params[:rating]
-        auto.save
-      end
+      QuotesAuto.where(auto_id: params[:id]).update_all(rating: params[:rating])
     end
     
     respond_to do |format|

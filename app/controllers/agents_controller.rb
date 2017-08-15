@@ -3,6 +3,17 @@ class AgentsController < ApplicationController
   layout 'agents'
 
   before_action :check_agent_auth, only: [:index, :homes, :autos]
+  
+  def index
+    @agent = Agent.where(login: Rails.cache.read("agent-#{session.id}")).try(:first)
+    agent_id = @agent.id
+    @auto_ratings = QuotesAuto.where(agent_id: agent_id).select(:auto_id, :rating).where.not(id: 1, rating: nil).distinct(:auto_id)
+    auto_sum = @auto_ratings.collect(&:rating).sum
+    @auto_ratings_percent = (auto_sum == 0) ? 0 : (@auto_ratings.collect(&:rating).sum).to_f / (@auto_ratings.count * 5).to_f * 100
+    @home_ratings = QuotesHome.where(agent_id: agent_id).select(:home_id, :rating).where.not(id: 1, rating: nil).distinct(:home_id)
+    home_sum = @home_ratings.collect(&:rating).sum
+    @home_ratings_percent = (home_sum == 0) ? 0 : (@home_ratings.collect(&:rating).sum).to_f / (@home_ratings.count * 5).to_f * 100
+  end
 
   def draw_quote_auto
     @quotes_auto = QuotesAuto.new
@@ -53,7 +64,7 @@ class AgentsController < ApplicationController
 
     if @home_quotes.blank?
       flash[:alert] = "No results found for Homes"
-      render action: 'index'
+      redirect_to action: 'index'
     end
   end
 
@@ -65,7 +76,7 @@ class AgentsController < ApplicationController
 
     if @auto_quotes.blank?
       flash[:alert] = "No results found for Autos"
-      render action: 'index'
+      redirect_to action: 'index'
     end
   end
 
@@ -102,6 +113,53 @@ class AgentsController < ApplicationController
     respond_to do |format|
       format.html { redirect_to action: 'login'}
     end
+  end
+  
+  def agent_manage
+    @agents = Agent.all
+    
+    respond_to do |format|
+      format.html
+    end
+  end
+  
+  def new
+    @agent = Agent.new
+    
+    respond_to do |format|
+      format.html
+    end
+  end
+  
+  def agent_edit
+    @agent = Agent.find(params[:id])
+    
+    respond_to do |format|
+      format.html
+    end
+  end
+  
+  def update
+    agent = Agent.find(params[:id])
+    agent.update_attributes(params[:agent])
+    
+    flash[:success] = "Successfully upated #{agent.name}'s record"
+    redirect_to agent_manage_path
+  end
+  
+  def create
+    agent = Agent.new(params[:agent])
+    agent.save
+    
+    flash[:success] = "Successfully upated #{agent.name}'s record"
+    redirect_to agent_manage_path
+  end
+  
+  def destroy
+    agent = Agent.destroy(params[:id])
+    
+    flash[:success] = "Successfully upated #{agent.name}'s record"
+    redirect_to agent_manage_path
   end
 
 end

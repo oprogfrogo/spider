@@ -1,0 +1,38 @@
+<%= form_for @agent, html: { 'data-parsley-validate': true } do |f| %>
+    <div class="small-12 collapse columns text-center">
+        <h5>Edit Agent</h5>
+    </div>
+    <div class="small-12 collapse columns text-center">
+        <label class="text-left">Login</label>
+        <%= f.text_field :login, placeholder: "johndoe", required: true %>
+    </div>
+    <div class="small-12 collapse columns text-center">
+        <label class="text-left">Name</label>
+        <%= f.text_field :name, placeholder: "John Doe", required: true %>
+    </div>
+    <div class="small-12 collapse columns text-center">
+        <label class="text-left">Email</label>
+        <%= f.text_field :email, placeholder: "john@spiderpolicy.com", required: true %>
+    </div>
+    <div class="small-12 collapse columns text-center">
+        <label class="text-left">Phone</label>
+        <%= f.text_field :phone, placeholder: "888-888-8888", required: true %>
+    </div>
+    <div class="small-12 collapse columns text-center">
+        <label class="text-left">Extension</label>
+        <%= f.text_field :ext, placeholder: "x111" %>
+    </div>
+    <div class="small-12 collapse columns text-center">
+        <label class="text-left">Is Manager?</label>
+        <%= f.select :is_manager, [true, false], required: true %>
+    </div>
+    <div class="small-12 collapse columns text-center">
+        <label class="text-left">Include Round Robin?</label>
+        <%= f.select :round_robin, [true, false], required: true %>
+    </div>
+    <div class="small-12 columns text-center">
+        <button class="button fat-button">
+            Start Quote
+        </button>
+    </div>
+<% end %>

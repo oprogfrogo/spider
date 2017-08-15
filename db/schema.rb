@@ -20,9 +20,10 @@ ActiveRecord::Schema.define(version: 20170614062020) do
     t.string   "email",       limit: 255
     t.string   "phone",       limit: 255
     t.string   "ext",         limit: 255
-    t.integer  "round_robin", limit: 4,   default: 0, null: false
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.boolean  "is_manager"
+    t.boolean  "round_robin"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "autos", force: :cascade do |t|
