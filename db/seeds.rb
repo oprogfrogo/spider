@@ -1,5 +1,6 @@
 Agent.create([
   {
+    id: 1,
     login: 'simon',
     password: 'sdfsdf',
     name: 'Simon Lee',
@@ -10,6 +11,7 @@ Agent.create([
     round_robin: 1
   },
   {
+    id: 2,
     login: 'sarah',
     password: 'sdfsdf',
     name: 'Sarah Somebody',
@@ -63,6 +65,7 @@ Auto.create([
 
 Home.create([
   {
+    id: 1,
     user_id: 1,
     street: '111 Test St.',
     street2: '',
