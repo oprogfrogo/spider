@@ -7,14 +7,17 @@ class QuotesAutoController < ApplicationController
     @bronze = QuotesAuto.new(params[:bronze])
     @bronze.auto_id = params[:auto_id]
     @bronze.category = 'bronze'
+    @bronze.agent_id = Agent.where(login: Rails.cache.read("agent-#{session.id}")).try(:first).try(:id)
 
     @silver = QuotesAuto.new(params[:silver])
     @silver.auto_id = params[:auto_id]
     @silver.category = 'silver'
+    @silver.agent_id = Agent.where(login: Rails.cache.read("agent-#{session.id}")).try(:first).try(:id)
 
     @gold = QuotesAuto.new(params[:gold])
     @gold.auto_id = params[:auto_id]
     @gold.category = 'gold'
+    @gold.agent_id = Agent.where(login: Rails.cache.read("agent-#{session.id}")).try(:first).try(:id)
 
     if @bronze.valid? && @silver.valid? && @gold.valid?
       @auto = Auto.find(params[:auto_id])

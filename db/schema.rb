@@ -89,6 +89,7 @@ ActiveRecord::Schema.define(version: 20170614062020) do
     t.string   "rental_reimbursement",             limit: 255
     t.string   "roadside_coverage",                limit: 255
     t.string   "total_premium",                    limit: 255
+    t.integer  "agent_id",                         limit: 4
     t.integer  "rating",                           limit: 4
     t.datetime "created_at",                                   null: false
     t.datetime "updated_at",                                   null: false
@@ -142,6 +143,7 @@ ActiveRecord::Schema.define(version: 20170614062020) do
     t.string   "fungi_mold_bacteria_premium",           limit: 255
     t.string   "total_premium_limit",                   limit: 255
     t.string   "total_premium_premium",                 limit: 255
+    t.integer  "agent_id",                              limit: 4
     t.integer  "rating",                                limit: 4
     t.datetime "created_at",                                        null: false
     t.datetime "updated_at",                                        null: false

@@ -46,6 +46,7 @@ class CreateQuotesHomes < ActiveRecord::Migration
       t.string :fungi_mold_bacteria_premium
       t.string :total_premium_limit
       t.string :total_premium_premium
+      t.integer :agent_id
       t.integer :rating
 
       t.timestamps null: false

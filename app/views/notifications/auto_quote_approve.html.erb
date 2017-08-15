@@ -1,15 +1,18 @@
 <div>
     <div><%= image_tag 'https://s3-us-west-2.amazonaws.com/spiderpolicy/spider_policy_man.png', width: '70%' %></div>
-    <div style="margin-top: 30px"><%= Date.today %></div>
-    <div style="margin-top: 30px">
-        <p><%= @user.profile.name %></p>
-        <p><%= @auto.vin %></p>
-        <p><%= @auto.year %></p>
-        <p><%= @auto.make %></p>
-        <p><%= @auto.model %></p>
+    <div>
+      <h2>Your auto quote has been approved!</h2>
     </div>
     <div style="margin-top: 30px">
-        <table id="home_quote_approve_table" cellpadding="5" cellspacing="0">
+        <p>This quote is for your automobile below:</p>
+        <p>Name: <%= @user.profile.name %></p>
+        <p>VIN: <%= @auto.vin %></p>
+        <p>Year: <%= @auto.year %></p>
+        <p>Make: <%= @auto.make %></p>
+        <p>Mode: <%= @auto.model %></p>
+    </div>
+    <div style="margin-top: 30px">
+        <table id="home_quote_approve_table" cellpadding="5" cellspacing="0" style='border: 1px solid #efefef; padding: 10px; border-radius: 5px; background: #d6d6d6'>
             <thead>
                 <tr>
                     <th style="background: #000; color: #fff;">Coverage</th>
@@ -21,7 +24,7 @@
             <tbody>
                 <% (@quotes.column_names - ['id', 'auto_id', 'category', 'created_at', 'updated_at']).each {|column| %>
                     <tr>
-                        <td><%= column.titleize %></td>
+                        <td style='background: #fff'><%= column.titleize %></td>
                         <% @quotes.each_with_index {|quote, index| %>
                             <% case index
                                 when 0
@@ -41,7 +44,23 @@
             </tbody>
         </table>
     </div>
-    <div style="text-align: center">
+    <br/>
+    <br/>
+    <br/>
+    <div>
+      <div style='margin-bottom: 10px'>
+        <h3>Thank you for choosing Spider Policy,</h3>
+      </div>
+      <div>
+        <%= image_tag image_url("https://s3-us-west-2.amazonaws.com/spiderpolicy/agent_#{@agent.login}.jpg"), style: 'float:left; height:50px; width:50px;' %>
+      </div>
+      <div style='margin-left:60px; margin-bottom: 10px'>
+        <div><%= @agent.name %></div>
+        <div><%= @agent.phone %></div>
+        <div><%= @agent.email %></div>
+      </div>
+      <div>
         <%= render 'ratingstars', quotetype: 'auto', id: @auto.id %>
+      </div>
     </div>
 </div>

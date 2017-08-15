@@ -7,6 +7,7 @@ class QuotesHomeController < ApplicationController
     begin
       @quotes_home = QuotesHome.new(params[:send_home])
       @quotes_home.home_id = params[:home_id]
+      @quotes_home.agent_id = Agent.where(login: Rails.cache.read("agent-#{session.id}")).try(:first).try(:id)
 
       if @quotes_home.valid?
         @home = Home.find(params[:home_id])
