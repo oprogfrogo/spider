@@ -55,7 +55,7 @@ class QuotesHomeController < ApplicationController
   end
 
   def edit
-    @quotes_home = QuotesHome.where(home_id: 1)
+    @quotes_home = QuotesHome.where(home_id: 1).try(:first)
   end
 
   def update
